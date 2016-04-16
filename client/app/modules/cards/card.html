@@ -1,18 +1,21 @@
 
 <h1>Test..</h1>
 
+<h1>{{ card.frontText }}</h1>
 
-<div class="card-container" ng-repeat="card in flashCtrl.cards">
-  <div id="flipper" ng-click="flashCtrl.toggleClass(card)"
+<p>{{ card.backText }}</p>
+
+
+<!-- card attempt ------------------------------------------------>
+
+<section class="container" ng-repeat="card in flashCtrl.cards">
+  <div class="card"
+    ng-click="flashCtrl.toggleClass(card)"
     ng-class="{ 'flipped': card.flipped }">
-    <div class="card-front">
-      <h1>{{ card.frontText }}</h1>
-    </div>
-    <div class="card-back">
-      <p>{{ card.backText }}</p>
-    </div>
+    <figure class="front">{{ card.frontText}}</figure>
+    <figure class="back">{{ card.backText }}</figure>
   </div>
-  </div>
+</section>
 
   <!-- <h1>Card</h1> -->
 
