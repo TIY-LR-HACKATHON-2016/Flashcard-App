@@ -16,6 +16,16 @@
         <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
       </button>
     </form>
-
   </div>
+
+  <section class="card-container" ng-repeat="card in flashCtrl.cards">
+    <div class="card"
+      ng-click="flashCtrl.toggleClass(card)"
+      ng-class="{ 'flipped': card.flipped }">
+      <figure class="front">{{ card.fronttext }}</figure>
+      <figure class="back">{{ card.backtext }}</figure>
+    </div>
+  </section>
+
+
 </div>

@@ -19,12 +19,12 @@ class SetController {
 
 
   getData() {
-		// this._$http
-		// .get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
-		// .then((response) => {
-		// 	console.log(response);
-		// 	this.cards = response.data;
-		// });
+		this._$http
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
+		.then((response) => {
+			console.log(response);
+			this.cards = response.data;
+		});
 
 
 

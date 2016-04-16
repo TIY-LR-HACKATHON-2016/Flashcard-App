@@ -18,6 +18,42 @@ class SubjectController {
 		this.showForm = true;
 	}
 
+	getData() {
+		this._$http
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/subjects/create`)
+		.then((response) => {
+			console.log(response);
+			this.subject = response.data;
+		})
+	}
+
+
+
+	createSubject() {
+		this._$http
+			.post('http://tiy-lr-flashcards.azurewebsites.net/subjects/create', {
+				Name: this.newSubject
+			})
+			.then((response) => {
+				console.log(response);
+				this.newSubject = "";
+				this.showForm = false;
+				this.placeholder = "+";
+			})
+			.catch((error) => {
+				console.log(error);
+			})
+
+
+	}
+
+}
+
+
+
+
+
+export default SubjectController
 
 //TEST DATA -------------------------------------------------------------------
 		// 	this.cards = [
@@ -29,25 +65,3 @@ class SubjectController {
 		// 	}
 		// ]
 	//-------------------------------------------------------------------
-
-  }
-
-	createSubject() {
-		console.log("subject created");
-
-		this._$http
-			.post('http://tiy-lr-flashcards.azurewebsites.net/subjects/create', {
-				Name: this.newSubject
-			})
-			.then((response) => {
-				console.log(response);
-			})
-			.catch((error) => {
-				console.log(error);
-			})
-
-	}
-
-}
-
-export default SubjectController
