@@ -31,32 +31,34 @@ namespace Flashcards.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-            
-            var subject = new Subject();
-            subject.Name = "Physics";
-            context.Subjects.Add(subject);
+            if (!context.Cards.Any())
+            {
+                var subject = new Subject();
+                subject.Name = "Physics";
+                context.Subjects.Add(subject);
 
-            var set1 = new Set();
-            set1.Name = "Quantum Physics";
-            set1.Subject = subject;
-            context.Sets.Add(set1);
+                var set1 = new Set();
+                set1.Name = "Quantum Physics";
+                set1.Subject = subject;
+                context.Sets.Add(set1);
 
-            var set2 = new Set();
-            set2.Name = "Real Physics";
-            set2.Subject = subject;
-            context.Sets.Add(set2);
+                var set2 = new Set();
+                set2.Name = "Real Physics";
+                set2.Subject = subject;
+                context.Sets.Add(set2);
 
-            var cards = Builder<Card>.CreateListOfSize(40)
-                .All().With(x => x.frontText = Faker.NameFaker.MaleFirstName())
-                .With(x=>x.backText = Faker.NameFaker.FemaleFirstName())
-                .With(x=>x.Subject=subject)
-                .With(x=>x.Set=set1)
-                .Random(20)
-                .With(x=>x.Set=set2) 
-                .Random(20)
-                .Build();
-            context.Cards.AddRange(cards);
-            context.SaveChanges();
+                var cards = Builder<Card>.CreateListOfSize(40)
+                    .All().With(x => x.frontText = Faker.NameFaker.MaleFirstName())
+                    .With(x => x.backText = Faker.NameFaker.FemaleFirstName())
+                    .With(x => x.Subject = subject)
+                    .With(x => x.Set = set1)
+                    .Random(20)
+                    .With(x => x.Set = set2)
+                    .Random(20)
+                    .Build();
+                context.Cards.AddRange(cards);
+                context.SaveChanges();
+            }
         }
     }
 }
