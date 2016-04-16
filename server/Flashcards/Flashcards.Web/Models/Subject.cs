@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Flashcards.Web.Models
 {
@@ -6,6 +7,7 @@ namespace Flashcards.Web.Models
     {
         public int Id { get; set; }
         public virtual ICollection<Set> Sets { get; set; } = new List<Set>();
+        [Required]
         public string Name { get; set; }
       
     }
