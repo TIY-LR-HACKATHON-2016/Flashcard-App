@@ -184,6 +184,10 @@
     <Compile Include="Migrations\201604160335387_updateSetandSubject.Designer.cs">
       <DependentUpon>201604160335387_updateSetandSubject.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604161557111_addImgToCards.cs" />
+    <Compile Include="Migrations\201604161557111_addImgToCards.Designer.cs">
+      <DependentUpon>201604161557111_addImgToCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Set.cs" />
@@ -262,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604160335387_updateSetandSubject.resx">
       <DependentUpon>201604160335387_updateSetandSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604161557111_addImgToCards.resx">
+      <DependentUpon>201604161557111_addImgToCards.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

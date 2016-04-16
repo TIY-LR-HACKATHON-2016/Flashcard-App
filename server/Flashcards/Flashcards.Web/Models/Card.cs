@@ -14,5 +14,8 @@ namespace Flashcards.Web.Models
         public string backText { get; set; }
         [Required]
         public Set Set { get; set; }
+
+        public string FrontImgURL { get; set; }
+        public string BackImgURL { get; set; }
     }
 }
