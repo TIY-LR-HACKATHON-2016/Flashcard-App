@@ -24,20 +24,20 @@
   height: 100%;
   width: 100%;
   line-height: 260px;
-  color: white;
+  color: $accent;
   text-align: center;
   font-weight: bold;
-  font-size: 140px;
   position: absolute;
   margin: 0;
   backface-visibility: hidden;
 }
 
 .card .front {
-  background: red;
+  background: $base;
+  font-size: 3em;
 }
 
 .card .back {
-  background: blue;
+  background: $base-accent;
   transform: rotateY( 180deg );
 }

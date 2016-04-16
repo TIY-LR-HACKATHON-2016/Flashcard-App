@@ -1,3 +1,6 @@
+* {
+  background-color: #AAAAAA; }
+
 .container {
   width: 200px;
   height: 260px;
@@ -21,17 +24,17 @@
   height: 100%;
   width: 100%;
   line-height: 260px;
-  color: white;
+  color: #FEE5D9;
   text-align: center;
   font-weight: bold;
-  font-size: 140px;
   position: absolute;
   margin: 0;
   backface-visibility: hidden; }
 
 .card .front {
-  background: red; }
+  background: #FB6A4A;
+  font-size: 3em; }
 
 .card .back {
-  background: blue;
+  background: #FCAE91;
   transform: rotateY(180deg); }
