@@ -97,6 +97,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -177,6 +181,10 @@
     <Compile Include="Migrations\201604161628188_InitialCreate.Designer.cs">
       <DependentUpon>201604161628188_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604161911572_addRequirements.cs" />
+    <Compile Include="Migrations\201604161911572_addRequirements.Designer.cs">
+      <DependentUpon>201604161911572_addRequirements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Set.cs" />
@@ -250,6 +258,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604161628188_InitialCreate.resx">
       <DependentUpon>201604161628188_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604161911572_addRequirements.resx">
+      <DependentUpon>201604161911572_addRequirements.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
