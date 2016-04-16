@@ -34,7 +34,7 @@ namespace Flashcards.Web.Controllers
             }
             newCard.Set = set;
 
-            var imgRegex = new Regex("(jpg|png|gif|bmp)$");
+            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
             if (!imgRegex.IsMatch(card.FrontImgURL))
             {
                 card.FrontImgURL = null;
@@ -50,33 +50,46 @@ namespace Flashcards.Web.Controllers
         }
 
         [HttpPost]
-        [Route("/createset")]
-        public ActionResult CreateSet([Bind(Include = "Name, Subject_Id")] Set set)
+        public ActionResult CreateSet(CreateSetVM set)
         {
             if (!ModelState.IsValid)
             {
                 return Content("Nope (Bad Set Model)");
             }
-            db.Sets.Add(set);
+            var sub = db.Subjects.Find(set.SubjectId);
+            if (sub == null)
+            {
+                return Content("Nope, that's not a vaild subject for this set");
+            }
+
+            var newSet = new Set
+            {
+                Name = set.Name,
+                Subject = sub
+            };
+            db.Sets.Add(newSet);
             db.SaveChanges();
             return Json(set, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        [Route("/createsubject")]
-        public ActionResult CreateSubject([Bind(Include = "Name")] Subject subject)
+        public ActionResult CreateSubject(CreateSubjectVM subject)
         {
             if (!ModelState.IsValid)
             {
                 return Content("nope, subject in bad state");
             }
-            db.Subjects.Add(subject);
+            var newSub = new Subject
+            {
+                Name = subject.Name,
+            };
+            db.Subjects.Add(newSub);
             db.SaveChanges();
             return Json(subject, JsonRequestBehavior.AllowGet);
         }
 
 
-        [Route("/viewset")]
+        
         public ActionResult ViewSet(int Id)
         {
             var model = db.Cards.Where(s=>s.Set.Id==Id).Select(c => new {
@@ -94,7 +107,7 @@ namespace Flashcards.Web.Controllers
         }
 
 
-        [Route("/viewsubject")]
+        
         public ActionResult ViewSubject(int Id)
         {
             var model = db.Sets.Where(s => s.Id == Id).Select(c => new
@@ -112,7 +125,7 @@ namespace Flashcards.Web.Controllers
         }
 
 
-        [Route("/viewcard/")]
+        
         public ActionResult ViewCard(int Id)
         {
             var card = db.Cards.Find(Id);
@@ -131,7 +144,7 @@ namespace Flashcards.Web.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
-        [Route("/indexsubject")]
+        
         public ActionResult IndexSubject()
         {
             var model = db.Subjects.Select(x => new
