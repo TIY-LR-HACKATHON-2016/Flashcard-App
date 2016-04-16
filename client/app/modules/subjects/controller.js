@@ -23,15 +23,12 @@ class SubjectController {
 		//add class active on click
 	}
 
-	addAttribute() {
-		element.setAttributeNS(placeholder);
-	}
 
 
 
   getData() {
 		// this._$http
-		// .get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
+		// .get(`http://tiy-lr-flashcards.azurewebsites.net/subjects/create`)
 		// .then((response) => {
 		// 	console.log(response);
 		// 	this.cards = response.data;
@@ -51,6 +48,17 @@ class SubjectController {
 	//-------------------------------------------------------------------
 
   }
+
+	createSubject() {
+		console.log("subject created");
+
+		this._$http
+			.post(`http://tiy-lr-flashcards.azurewebsites.net/subjects/create`, {
+				name: this.name,
+				set: this.set
+			})
+
+	}
 
 }
 

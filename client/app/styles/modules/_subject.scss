@@ -2,9 +2,9 @@
 .email-field {
   width: 80px;
 	display: inline-block;
-	color: $accent;
+	color: $light;
 	text-align: center;
-	background-color: $light;
+	background-color: $darker-mid;
 	padding: .9em 1.8em;
 	border: none;
 	cursor: pointer;
@@ -13,7 +13,7 @@
 	transition: all .1s linear;
 }
 .email-field:hover {
-	background-color: $dark-base;
+	background-color: $mid-tone;
 }
 
 .email-field.showForm {
@@ -21,28 +21,29 @@
 }
 
 /* after button is clicked */
-.email-field.active {
-	width: 200px;
-	outline: none;
-	color: $base-accent;
-	text-align: left;
-	cursor: inherit;
-}
+// .email-field.active {
+// 	width: 200px;
+// 	outline: none;
+//   outline-width: 0;
+// 	color: $mid-tone;
+// 	text-align: left;
+// 	cursor: inherit;
+// }
 
 
 /* Email submit button */
-.submitForm {
-	width: 35px;
-	height: 35px;
-
-  opacity: .25;
-	background-color: green;
-	transition: all .2s linear;
-
-	cursor: pointer; /* for demo only */
-
-	display: none;
-}
+// .submitForm {
+// 	width: 35px;
+// 	height: 35px;
+//
+//   opacity: .25;
+// 	background-color: green;
+// 	transition: all .2s linear;
+//
+// 	cursor: pointer; /* for demo only */
+//
+// 	display: none;
+// }
 
 #submit-button {
   color: $accent;
@@ -52,6 +53,10 @@
     & span {
       position: absolute;
       top: 66%;
+    }
+
+    &:hover {
+      color: $dark;
     }
 }
 
@@ -65,13 +70,13 @@
 }
 
 /* vertically position everything for effect */
-@media screen and (min-width: 480px) {
-
-	.middle {
-		width: 100%;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translateX(-50%) translateY(-50%);
-  }
+// @media screen and (min-width: 480px) {
+//
+// 	.middle {
+// 		width: 100%;
+// 		position: absolute;
+// 		top: 50%;
+// 		left: 50%;
+// 		transform: translateX(-50%) translateY(-50%);
+//   }
 }

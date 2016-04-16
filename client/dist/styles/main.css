@@ -1,0 +1,89 @@
+* {
+  background-color: #8B9DC3; }
+
+/* Input field that looks like a button */
+.email-field {
+  width: 80px;
+  display: inline-block;
+  color: #8B9DC3;
+  text-align: center;
+  background-color: #03396C;
+  padding: .9em 1.8em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  transition: all .1s linear; }
+
+.email-field:hover {
+  background-color: #3B5998; }
+
+.email-field.showForm {
+  width: 200px; }
+
+/* after button is clicked */
+/* Email submit button */
+#submit-button {
+  color: #005B96;
+  font-size: 2.5rem;
+  border: none; }
+  #submit-button span {
+    position: absolute;
+    top: 66%; }
+  #submit-button:hover {
+    color: #011F4B; }
+
+#subject-button:hover {
+  opacity: .33; }
+
+#subject-button.show {
+  display: inline-block;
+  background-size: 33px; }
+
+/* vertically position everything for effect */
+@media screen and (min-width: 480px) {
+  .middle {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); } }
+
+.container {
+  width: 260px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto 40px;
+  perspective: 800px;
+  display: inline-block; }
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform-origin: right center; }
+
+.card.flipped {
+  transform: translateX(-100%) rotateY(-180deg); }
+
+.card figure {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 260px;
+  color: #03396C;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  margin: 0;
+  backface-visibility: hidden; }
+
+.card .front {
+  background: #005B96;
+  font-size: 3em; }
+
+.card .back {
+  background: #3B5998;
+  transform: rotateY(180deg); }
