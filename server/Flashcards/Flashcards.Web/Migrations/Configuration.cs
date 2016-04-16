@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+using FizzWare.NBuilder;
 using Flashcards.Web.Models;
 
 namespace Flashcards.Web.Migrations
@@ -31,8 +33,23 @@ namespace Flashcards.Web.Migrations
             //
 
             var subject = new Subject();
-            subject.
+            subject.Name = "Physics";
+            var set1 = new Set();
+            set1.Name = "Quantum Physics";
+            set1.Subject = subject;
+            var set2 = new Set();
+            set2.Name = "Real Physics";
+            set2.Subject = subject;
 
+            var cards = Builder<Card>.CreateListOfSize(40)
+                .All().With(x => x.frontText = Faker.NameFaker.MaleFirstName())
+                .With(x=>x.backText = Faker.NameFaker.FemaleFirstName())
+                .With(x=>x.Subject=subject)
+                .With(x=>x.Set=set1)
+                .Random(20)
+                .With(x=>x.Set=set2) 
+                .Random(20)
+                .Build();
         }
     }
 }
