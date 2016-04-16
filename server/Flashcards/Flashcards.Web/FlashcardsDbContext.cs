@@ -18,4 +18,6 @@ public class FlashcardsDbContext : DbContext
     }
 
     public System.Data.Entity.DbSet<Flashcards.Web.Models.Card> Cards { get; set; }
+    public System.Data.Entity.DbSet<Flashcards.Web.Models.Set> Sets { get; set; }
+    public System.Data.Entity.DbSet<Flashcards.Web.Models.Subject> Subjects { get; set; }
 }

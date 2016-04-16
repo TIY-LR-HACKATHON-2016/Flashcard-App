@@ -10,115 +10,115 @@ using Flashcards.Web.Models;
 
 namespace Flashcards.Web.Controllers
 {
-    public class CardsController : Controller
+    public class SetsController : Controller
     {
         private FlashcardsDbContext db = new FlashcardsDbContext();
 
-        // GET: Cards
+        // GET: Sets
         public ActionResult Index()
         {
-            //TODO: Sort by set (make sure sets != null first)
-            return Json(db.Cards.ToList(), JsonRequestBehavior.AllowGet);
+            return Json(db.Sets.ToList(), JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Cards/Details/5
+        // GET: Sets/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null)
+            Set set = db.Sets.Find(id);
+            if (set == null)
             {
                 return HttpNotFound();
             }
-            return Json(card, JsonRequestBehavior.AllowGet);
+            return Json(set, JsonRequestBehavior.AllowGet);
+
         }
 
-        // GET: Cards/Create
+        // GET: Sets/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cards/Create
+        // POST: Sets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "frontText,backText")] Card card)
+        public ActionResult Create([Bind(Include = "Id,Name")] Set set)
         {
             if (ModelState.IsValid)
             {
-                db.Cards.Add(card);
+                db.Sets.Add(set);
                 db.SaveChanges();
-                return Json(card, JsonRequestBehavior.AllowGet);
+                return Json(set, JsonRequestBehavior.AllowGet);
             }
 
-            return Content("Nope (Bad Card Model)");
+            return Content("Nope (Bad Set Model)");
         }
 
-        // GET: Cards/Edit/5
+        // GET: Sets/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null)
+            Set set = db.Sets.Find(id);
+            if (set == null)
             {
                 return HttpNotFound();
             }
-            return View(card);
+            return View(set);
         }
 
-        // POST: Cards/Edit/5
+        // POST: Sets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,frontText,backText")] Card card)
+        public ActionResult Edit([Bind(Include = "Id,Name")] Set set)
         {
+
             if (ModelState.IsValid)
             {
-                var newCard = db.Cards.Find(card.Id);
-                if (newCard == null)
+                var newSet = db.Sets.Find(set.Id);
+                if (newSet == null)
                 {
-                    return Content("Nope (Bad Card Model to edit)");
+                    return Content("Nope (Bad Set Model to edit)");
                 }
-                newCard.frontText = card.frontText;
-                newCard.backText = card.backText;
+                newSet = set;
 
                 db.SaveChanges();
-                return Json(card, JsonRequestBehavior.AllowGet);
+                return Json(set, JsonRequestBehavior.AllowGet);
             }
-            return Content("Nope (Bad Card Model to edit)");
+            return Content("Nope (Bad Set Model to edit)");
         }
 
-        // GET: Cards/Delete/5
+        // GET: Sets/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Card card = db.Cards.Find(id);
-            if (card == null)
+            Set set = db.Sets.Find(id);
+            if (set == null)
             {
                 return HttpNotFound();
             }
-            return View(card);
+            return View(set);
         }
 
-        // POST: Cards/Delete/5
+        // POST: Sets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Card card = db.Cards.Find(id);
-            db.Cards.Remove(card);
+            Set set = db.Sets.Find(id);
+            db.Sets.Remove(set);
             db.SaveChanges();
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
@@ -131,10 +131,5 @@ namespace Flashcards.Web.Controllers
             }
             base.Dispose(disposing);
         }
-
-
-
-
-
     }
 }
