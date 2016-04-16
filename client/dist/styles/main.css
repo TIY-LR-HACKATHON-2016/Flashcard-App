@@ -1,0 +1,13 @@
+.card-container {
+  width: 200px;
+  height: 200px; }
+
+.card-front {
+  width: 200px;
+  height: 200px;
+  background-color: red; }
+
+.card-back {
+  width: 200px;
+  height: 200px;
+  background-color: blue; }

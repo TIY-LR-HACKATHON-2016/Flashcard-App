@@ -5,7 +5,7 @@ import controller from './controller';
 
 let cards = angular.module('card', []);
 
-events.config(config);
-events.controller('FlashController', controller);
+cards.config(config);
+cards.controller('FlashController', controller);
 
-export default card;
+export default cards;

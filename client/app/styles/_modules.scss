@@ -1,0 +1,21 @@
+@mixin box {
+  width: 200px;
+  height: 200px;
+
+}
+
+.card-container {
+  @include box;
+
+}
+
+.card-front {
+  @include box;
+  background-color: red;
+}
+
+.card-back {
+  @include box;
+  background-color: blue;
+
+}
