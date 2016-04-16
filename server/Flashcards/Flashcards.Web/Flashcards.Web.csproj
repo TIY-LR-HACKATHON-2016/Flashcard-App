@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\SetsController.cs" />
     <Compile Include="FlashcardsDbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,6 +179,10 @@
     <Compile Include="Migrations\201604160107363_unRequire.cs" />
     <Compile Include="Migrations\201604160107363_unRequire.Designer.cs">
       <DependentUpon>201604160107363_unRequire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604160335387_updateSetandSubject.cs" />
+    <Compile Include="Migrations\201604160335387_updateSetandSubject.Designer.cs">
+      <DependentUpon>201604160335387_updateSetandSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
@@ -199,6 +204,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\TIY-LR-Flashcards.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -230,11 +236,6 @@
     <Content Include="Views\Cards\Details.cshtml" />
     <Content Include="Views\Cards\Edit.cshtml" />
     <Content Include="Views\Cards\Index.cshtml" />
-    <Content Include="Views\Sets\Create.cshtml" />
-    <Content Include="Views\Sets\Delete.cshtml" />
-    <Content Include="Views\Sets\Details.cshtml" />
-    <Content Include="Views\Sets\Edit.cshtml" />
-    <Content Include="Views\Sets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -258,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604160107363_unRequire.resx">
       <DependentUpon>201604160107363_unRequire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604160335387_updateSetandSubject.resx">
+      <DependentUpon>201604160335387_updateSetandSubject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
