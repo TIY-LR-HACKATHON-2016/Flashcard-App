@@ -2,7 +2,6 @@
 class SubjectController {
 	constructor($http) {
     this._$http = $http;
-		// this.id = $stateParams.id;
 		this.subject = [];
 		this.getData();
 
@@ -20,7 +19,7 @@ class SubjectController {
 
 	getData() {
 		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/subjects/index`)
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/indexsubject`)
 		.then((response) => {
 			console.log(response);
 			this.subject = response.data;

@@ -1,8 +1,9 @@
 
 class FlashController {
 
-	constructor($http) {
+	constructor($http, $stateParams) {
     this._$http = $http;
+		this.set = $stateParams.set;
 		// this.id = $stateParams.id;
 		this.cards = [];
 
@@ -22,7 +23,7 @@ class FlashController {
 
   getData() {
 		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewset/${this.set}`)
 		.then((response) => {
 			console.log(response);
 			this.cards = response.data;

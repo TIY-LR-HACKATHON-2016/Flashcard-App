@@ -1,7 +1,7 @@
 function config($stateProvider) {
   $stateProvider
 		.state('cards', {
-			url: '/cards',
+			url: '/cards/:set',
 			controller: "FlashController as flashCtrl",
 			template: require('./card.html')
 

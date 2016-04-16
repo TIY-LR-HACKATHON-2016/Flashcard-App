@@ -4,6 +4,9 @@
 .pagination-centered {
   text-align: center; }
 
+h3 {
+  background-color: #005B96; }
+
 /* Input field that looks like a button */
 .email-field {
   margin: 0 auto;
@@ -36,6 +39,15 @@
   display: inline-block;
   background-size: 33px; }
 
+#subject-links {
+  background-color: #005B96;
+  color: #8B9DC3;
+  margin: 10px;
+  border: 3px solid #03396C; }
+
+.col-md-1 {
+  border-bottom: 3px solid #011F4B; }
+
 .card-container {
   width: 260px;
   height: 200px;
@@ -49,7 +61,8 @@
   height: 100%;
   position: absolute;
   transition: transform 1s;
-  transform-style: preserve-3d; }
+  transform-style: preserve-3d;
+  backface-visibility: hidden; }
 
 .card.flipped {
   transform: translateX(0%) rotateX(-180deg); }

@@ -16,6 +16,7 @@
   position: absolute;
   transition: transform 1s;
   transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .card.flipped {
@@ -33,7 +34,7 @@
   position: absolute;
   margin: 0;
   backface-visibility: hidden;
-  // transform-style: preserve-3d;
+
 
 
 }

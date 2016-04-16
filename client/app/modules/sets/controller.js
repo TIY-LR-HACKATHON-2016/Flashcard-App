@@ -1,9 +1,9 @@
 
 class SetController {
-	constructor($http) {
+	constructor($http, $stateParams) {
     this._$http = $http;
-		// this.id = $stateParams.id;
-		this.cards = [];
+		this.sets = [];
+		this.subject = $stateParams.subject;
 		this.getData();
 	}
 
@@ -20,10 +20,10 @@ class SetController {
 
   getData() {
 		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewsubject/${this.subject}`)
 		.then((response) => {
 			console.log(response);
-			this.cards = response.data;
+			this.sets = response.data;
 		});
 
 
