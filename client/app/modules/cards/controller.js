@@ -14,7 +14,7 @@ class FlashController {
 			card.flipped = false;
 		}
 		else {
-			card.flipped = true;			
+			card.flipped = true;
 		}
 	}
 
