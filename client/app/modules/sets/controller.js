@@ -32,10 +32,12 @@ class SetController {
 //TEST DATA -------------------------------------------------------------------
 			this.cards = [
 			{ name: "Test Name",
-				id: 5
+				id: 5,
+				subject: "Test Subject"
 			},
 			{ name: "Test Name2",
-				id: 6
+				id: 6,
+				subject: "Test Subject"
 			}
 		]
 	//-------------------------------------------------------------------

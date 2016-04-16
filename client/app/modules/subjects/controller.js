@@ -3,19 +3,18 @@ class SubjectController {
 	constructor($http) {
     this._$http = $http;
 		// this.id = $stateParams.id;
-		this.cards = [];
+		this.subject = [];
 
 		this.getData();
 	}
 
-	// toggleClass(card) {
-	// 	if (card.flipped === true) {
-	// 		card.flipped = false;
-	// 	}
-	// 	else {
-	// 		card.flipped = true;
-	// 	}
-	// }
+	addClass(active) {
+		//add class active on click
+	}
+
+	addAttribute() {
+		element.setAttributeNS(placeholder);
+	}
 
 
 
