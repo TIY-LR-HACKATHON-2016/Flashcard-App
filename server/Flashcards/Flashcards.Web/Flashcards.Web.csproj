@@ -178,6 +178,10 @@
     <Compile Include="Migrations\201604160107363_unRequire.Designer.cs">
       <DependentUpon>201604160107363_unRequire.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604160335387_updateSetandSubject.cs" />
+    <Compile Include="Migrations\201604160335387_updateSetandSubject.Designer.cs">
+      <DependentUpon>201604160335387_updateSetandSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Set.cs" />
@@ -248,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604160107363_unRequire.resx">
       <DependentUpon>201604160107363_unRequire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604160335387_updateSetandSubject.resx">
+      <DependentUpon>201604160335387_updateSetandSubject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
