@@ -10,116 +10,110 @@ using Flashcards.Web.Models;
 
 namespace Flashcards.Web.Controllers
 {
-    public class SetsController : Controller
+    public class SubjectsController : Controller
     {
         private FlashcardsDbContext db = new FlashcardsDbContext();
 
-        // GET: Sets
+        // GET: Subjects
         public ActionResult Index()
         {
-            var model = db.Sets.Select(s => new { setname = s.Name, setcount = s.Cards.Count() }).ToList();
+            var model = db.Subjects.Select(s => new { SubjectName = s.Name, setcount = s.Sets.Count()}).ToList();
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Sets/Details/5
+        // GET: Subjects/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return Content("nope, need an Id");
             }
-            Set set = db.Sets.Find(id);
-            if (set == null)
+            Subject subject = db.Subjects.Find(id);
+            if (subject == null)
             {
-                return HttpNotFound();
+                return Content("nope, subject not found");
             }
-            return Json(set, JsonRequestBehavior.AllowGet);
-
+            return Json(subject, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Sets/Create
+        // GET: Subjects/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Sets/Create
+        // POST: Subjects/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Set set)
+        public ActionResult Create([Bind(Include = "Name")] Subject subject)
         {
             if (ModelState.IsValid)
             {
-                db.Sets.Add(set);
+                db.Subjects.Add(subject);
                 db.SaveChanges();
-                return Json(set, JsonRequestBehavior.AllowGet);
+                return Json(subject, JsonRequestBehavior.AllowGet);
             }
 
-            return Content("Nope (Bad Set Model)");
+            return Content("nope, subject in bad state");
         }
 
-        // GET: Sets/Edit/5
+        // GET: Subjects/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Set set = db.Sets.Find(id);
-            if (set == null)
+            Subject subject = db.Subjects.Find(id);
+            if (subject == null)
             {
                 return HttpNotFound();
             }
-            return View(set);
+            return View(subject);
         }
 
-        // POST: Sets/Edit/5
+        // POST: Subjects/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Set set)
+        public ActionResult Edit([Bind(Include = "Id,Name")] Subject subject)
         {
-
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var newSet = db.Sets.Find(set.Id);
-                if (newSet == null)
-                {
-                    return Content("Nope (Bad Set Model to edit)");
-                }
-                newSet = set;
-
-                db.SaveChanges();
-                return Json(set, JsonRequestBehavior.AllowGet);
+                return Content("nope, subject in bad state");
             }
-            return Content("Nope (Bad Set Model to edit)");
+            var sub = db.Subjects.Find(subject.Id);
+            if (sub == null)
+            {
+                return Content("subject not found");
+            }
+            sub.Name = subject.Name;
+            db.SaveChanges();
+            return Json(subject, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Sets/Delete/5
+        // GET: Subjects/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Set set = db.Sets.Find(id);
-            if (set == null)
+            Subject subject = db.Subjects.Find(id);
+            if (subject == null)
             {
                 return HttpNotFound();
             }
-            return View(set);
+            return View(subject);
         }
 
-        // POST: Sets/Delete/5
+        // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Set set = db.Sets.Find(id);
-            db.Sets.Remove(set);
+            Subject subject = db.Subjects.Find(id);
+            db.Subjects.Remove(subject);
             db.SaveChanges();
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }

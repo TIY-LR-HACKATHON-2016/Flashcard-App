@@ -1,14 +1,11 @@
-using System.Security.Cryptography.X509Certificates;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using Faker;
 using FizzWare.NBuilder;
 using Flashcards.Web.Models;
 
 namespace Flashcards.Web.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     internal sealed class Configuration : DbMigrationsConfiguration<FlashcardsDbContext>
     {
         public Configuration()
@@ -19,44 +16,27 @@ namespace Flashcards.Web.Migrations
 
         protected override void Seed(FlashcardsDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (!context.Cards.Any())
+            {
+                var subject = new Subject {Name = "Physics"};
+                context.Subjects.Add(subject);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-            
-            var subject = new Subject();
-            subject.Name = "Physics";
-            context.Subjects.Add(subject);
+                var sets = Builder<Set>.CreateListOfSize(5)
+                    .All()
+                    .With(s => s.Subject = subject)
+                    .With(s => s.Name = CompanyFaker.Name())
+                    .With(s => s.Cards = Builder<Card>.CreateListOfSize(NumberFaker.Number(10, 50))
+                        .All()
+                        .With(x => x.frontText = NameFaker.MaleFirstName())
+                        .With(x => x.backText = NameFaker.FemaleFirstName())
+                        .With(x => x.Set == s)
+                        .Random(10).With(x => x.FrontImgURL = "http://i.imgur.com/lWS7uYp.jpg")
+                        .Build())
+                    .Build();
 
-            var set1 = new Set();
-            set1.Name = "Quantum Physics";
-            set1.Subject = subject;
-            context.Sets.Add(set1);
-
-            var set2 = new Set();
-            set2.Name = "Real Physics";
-            set2.Subject = subject;
-            context.Sets.Add(set2);
-
-            var cards = Builder<Card>.CreateListOfSize(40)
-                .All().With(x => x.frontText = Faker.NameFaker.MaleFirstName())
-                .With(x=>x.backText = Faker.NameFaker.FemaleFirstName())
-                .With(x=>x.Subject=subject)
-                .With(x=>x.Set=set1)
-                .Random(20)
-                .With(x=>x.Set=set2) 
-                .Random(20)
-                .Build();
-            context.Cards.AddRange(cards);
-            context.SaveChanges();
+                context.Sets.AddRange(sets);
+                context.SaveChanges();
+            }
         }
     }
 }

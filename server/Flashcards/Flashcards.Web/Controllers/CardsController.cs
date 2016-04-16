@@ -17,8 +17,10 @@ namespace Flashcards.Web.Controllers
         // GET: Cards
         public ActionResult Index()
         {
-            //TODO: Sort by set (make sure sets != null first)
-            return Json(db.Cards.ToList(), JsonRequestBehavior.AllowGet);
+            //var model = db.Sets.Select(s => new {Subject = s.Subject.Name, SetName = s.Name, CardCount = s.Cards.Count()}).ToList();
+            var model = db.Cards.OrderBy(s=>s.Set.Id).Select(c=> new {fronttext = c.frontText, backtext =c.backText, id = c.Id,
+                frontimg = c.FrontImgURL, backimg = c.BackImgURL}).ToList();
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Cards/Details/5

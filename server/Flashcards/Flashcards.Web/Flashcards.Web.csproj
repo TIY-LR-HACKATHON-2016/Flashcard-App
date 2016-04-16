@@ -166,18 +166,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
     <Compile Include="Controllers\SetsController.cs" />
     <Compile Include="FlashcardsDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604160104032_InitialCreate.cs" />
-    <Compile Include="Migrations\201604160104032_InitialCreate.Designer.cs">
-      <DependentUpon>201604160104032_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604160107363_unRequire.cs" />
-    <Compile Include="Migrations\201604160107363_unRequire.Designer.cs">
-      <DependentUpon>201604160107363_unRequire.cs</DependentUpon>
+    <Compile Include="Migrations\201604161628188_InitialCreate.cs" />
+    <Compile Include="Migrations\201604161628188_InitialCreate.Designer.cs">
+      <DependentUpon>201604161628188_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Card.cs" />
@@ -199,6 +196,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\TIY-LR-Flashcards.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -211,7 +209,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -228,11 +228,6 @@
     <Content Include="Views\Cards\Details.cshtml" />
     <Content Include="Views\Cards\Edit.cshtml" />
     <Content Include="Views\Cards\Index.cshtml" />
-    <Content Include="Views\Sets\Create.cshtml" />
-    <Content Include="Views\Sets\Delete.cshtml" />
-    <Content Include="Views\Sets\Details.cshtml" />
-    <Content Include="Views\Sets\Edit.cshtml" />
-    <Content Include="Views\Sets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -241,7 +236,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
@@ -249,11 +246,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604160104032_InitialCreate.resx">
-      <DependentUpon>201604160104032_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604160107363_unRequire.resx">
-      <DependentUpon>201604160107363_unRequire.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604161628188_InitialCreate.resx">
+      <DependentUpon>201604161628188_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
