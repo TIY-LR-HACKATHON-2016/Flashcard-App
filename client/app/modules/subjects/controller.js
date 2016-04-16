@@ -39,7 +39,7 @@ class SubjectController {
 				this.newSubject = "";
 				this.showForm = false;
 				this.placeholder = "+";
-				this.subject.push(response.data);
+				this.getData();
 			})
 			.catch((error) => {
 				console.log(error);
