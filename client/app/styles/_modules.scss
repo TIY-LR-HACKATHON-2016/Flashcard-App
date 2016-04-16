@@ -1,6 +1,6 @@
 .container {
-  width: 200px;
-  height: 260px;
+  width: 260px;
+  height: 200px;
   position: relative;
   margin: 0 auto 40px;
   perspective: 800px;
@@ -33,7 +33,7 @@
 }
 
 .card .front {
-  background: $base;
+  background: $dark-base;
   font-size: 3em;
 }
 

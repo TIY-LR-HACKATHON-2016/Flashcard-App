@@ -1,9 +1,9 @@
 * {
-  background-color: #AAAAAA; }
+  background-color: #011F4B; }
 
 .container {
-  width: 200px;
-  height: 260px;
+  width: 260px;
+  height: 200px;
   position: relative;
   margin: 0 auto 40px;
   perspective: 800px; }
@@ -24,7 +24,7 @@
   height: 100%;
   width: 100%;
   line-height: 260px;
-  color: #FEE5D9;
+  color: #8B9DC3;
   text-align: center;
   font-weight: bold;
   position: absolute;
@@ -32,9 +32,9 @@
   backface-visibility: hidden; }
 
 .card .front {
-  background: #FB6A4A;
+  background: #03396C;
   font-size: 3em; }
 
 .card .back {
-  background: #FCAE91;
+  background: #3B5998;
   transform: rotateY(180deg); }
