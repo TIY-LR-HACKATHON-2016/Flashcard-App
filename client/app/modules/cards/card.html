@@ -1,21 +1,19 @@
 
 <h1>Test..</h1>
 
-<div class="card-container">
-<div id="card">
-  <div class="card-front">
-    <h2>Title</h2>
-  </div>
-  <div class="card-back">
-    <p>Description</p>
-  </div>
-</div>
-</div>
 
-<div ng-repeat="card in flashCtrl.cards">
-  <h1>{{ card.frontText }}</h1>
-  <p>{{ card.backText }}</p>  
-</div>
-
+<div class="card-container" ng-repeat="card in flashCtrl.cards">
+  <div id="flipper" ontouchstart="this.classList.toggle('hover');">
+    <div class="card-front">
+      <h1>{{ card.frontText }}</h1>
+    </div>
+    <div class="card-back">
+      <p>{{ card.backText }}</p>
+    </div>
+  </div>
+  </div>
 
   <h1>Card</h1>
+
+  <!-- <div id="flipper" ng-click="flashCtrl.toggleClass(card)"
+    ng-class="{ 'flipped': card.flipped }"> -->

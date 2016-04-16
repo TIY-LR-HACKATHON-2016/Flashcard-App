@@ -8,6 +8,10 @@ class FlashController {
 		this.getData();
 	}
 
+	toggleClass(card) {
+		card.flipped = true;
+	}
+
   getData() {
 		this.cards = [
 			{ id: 1,
