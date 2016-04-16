@@ -5,6 +5,13 @@ function config($stateProvider) {
 			controller: "FlashController as flashCtrl",
 			template: require('./card.html')
 
+		})
+
+    .state('subject', {
+			url: '/subject/create',
+			controller: "FlashController as flashCtrl",
+			template: require('./subject.html')
+
 		});
 
 

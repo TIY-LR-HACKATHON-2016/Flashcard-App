@@ -19,29 +19,33 @@ class FlashController {
 	}
 
   getData() {
-		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
-		.then((response) => {
-			console.log(response);
-			this.cards = response.data;
-		});
-
-		// 	this.cards = [
-		// 	{ id: 1,
-		// 		frontText: "Title",
-		// 		backText: "description"
-		// 	},
-		// 	{ id: 2,
-		// 		frontText: "Title2",
-		// 		backText: "description2"
-		// 	}
-		// ]
 		// this._$http
-		// .get("New Flashcard")
+		// .get(`http://tiy-lr-flashcards.azurewebsites.net/cards/index`)
 		// .then((response) => {
-    //   console.log(results);
-    //   console.log("working");
+		// 	console.log(response);
+		// 	this.cards = response.data;
 		// });
+		//
+		// this._$http
+		// .get(`http://tiy-lr-flashcards.azurewebsites.net/cards/subject/create`)
+		// .then ((response) => {
+		// 	console.log(response);
+		// 	this.subject = response.data;
+		// })
+
+
+//TEST DATA -------------------------------------------------------------------
+			this.cards = [
+			{ id: 1,
+				frontText: "Title",
+				backText: "description"
+			},
+			{ id: 2,
+				frontText: "Title2",
+				backText: "description2"
+			}
+		]
+	//-------------------------------------------------------------------
 
   }
 
