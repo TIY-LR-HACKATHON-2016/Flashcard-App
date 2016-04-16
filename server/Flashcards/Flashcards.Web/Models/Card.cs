@@ -14,7 +14,5 @@ namespace Flashcards.Web.Models
         public string backText { get; set; }
         [Required]
         public Set Set { get; set; }
-        [Required]
-        public Subject Subject { get; set; }
     }
 }
