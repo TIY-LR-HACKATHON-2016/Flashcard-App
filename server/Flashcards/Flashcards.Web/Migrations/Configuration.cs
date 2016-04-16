@@ -1,3 +1,5 @@
+using Flashcards.Web.Models;
+
 namespace Flashcards.Web.Migrations
 {
     using System;
@@ -27,6 +29,10 @@ namespace Flashcards.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            var subject = new Subject();
+            subject.
+
         }
     }
 }
