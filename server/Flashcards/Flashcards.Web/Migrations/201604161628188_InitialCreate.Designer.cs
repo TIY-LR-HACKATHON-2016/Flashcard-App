@@ -7,13 +7,13 @@ namespace Flashcards.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class unRequire : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(unRequire));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604160107363_unRequire"; }
+            get { return "201604161628188_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

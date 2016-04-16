@@ -6,9 +6,9 @@ namespace Flashcards.Web.Models
     public class Set
     {
         public int Id { get; set; }
-        public virtual ICollection<Card> Cards { get; set; }
+        public virtual ICollection<Card> Cards { get; set; } = new List<Card>();
         public string Name { get; set; }
         [Required]
-        public Subject Subject { get; set; }
+        public virtual Subject Subject { get; set; }
     }
 }
