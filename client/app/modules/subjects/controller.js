@@ -4,9 +4,20 @@ class SubjectController {
     this._$http = $http;
 		// this.id = $stateParams.id;
 		this.subject = [];
-
 		this.getData();
+
+		// form show/hide thing
+ 		this.newSubject = "";
+		this.showForm = false;
+		this.placeholder = "+";
+
 	}
+
+	toggleForm() {
+		this.placeholder = "Add New Subject";
+		this.showForm = true;
+	}
+
 
 	addClass(active) {
 		//add class active on click

@@ -18,6 +18,9 @@
 .email-field:hover {
   background-color: #03396C; }
 
+.email-field.showForm {
+  width: 200px; }
+
 /* after button is clicked */
 .email-field.active {
   width: 200px;
@@ -27,24 +30,21 @@
   cursor: inherit; }
 
 /* Email submit button */
-#subscribe-button {
+#subject-button {
   width: 35px;
   height: 35px;
   border: none;
-  text-indent: -9999px;
   opacity: .25;
-  background: url(http://helixpowered.com/assets/img/arrow-circle-on-right.svg) no-repeat;
-  background-size: 13px;
-  background-position: 0 1px;
+  background-color: green;
   transition: all .2s linear;
   cursor: pointer;
   /* for demo only */
   display: none; }
 
-#subscribe-button:hover {
+#subject-button:hover {
   opacity: .33; }
 
-#subscribe-button.show {
+#subject-button.show {
   display: inline-block;
   background-size: 33px; }
 

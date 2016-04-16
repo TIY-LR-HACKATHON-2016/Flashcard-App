@@ -4,7 +4,6 @@ class SetController {
     this._$http = $http;
 		// this.id = $stateParams.id;
 		this.cards = [];
-
 		this.getData();
 	}
 

@@ -33,11 +33,11 @@ class FlashController {
 //TEST DATA -------------------------------------------------------------------
 		// 	this.cards = [
 		// 	{ id: 1,
-		// 		frontText: "Title",
+		// 		fronttext: "Title",
 		// 		backText: "description"
 		// 	},
 		// 	{ id: 2,
-		// 		frontText: "Title2",
+		// 		fronttext: "Title2",
 		// 		backText: "description2"
 		// 	}
 		// ]
