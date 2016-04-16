@@ -53,9 +53,14 @@ class SubjectController {
 		console.log("subject created");
 
 		this._$http
-			.post(`http://tiy-lr-flashcards.azurewebsites.net/subjects/create`, {
-				name: this.name,
-				set: this.set
+			.post('http://tiy-lr-flashcards.azurewebsites.net/subjects/create', {
+				Name: "test"
+			})
+			.then((response) => {
+				console.log(response);
+			})
+			.catch((error) => {
+				console.log(error);
 			})
 
 	}

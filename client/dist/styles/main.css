@@ -1,9 +1,12 @@
 * {
   background-color: #8B9DC3; }
 
+.pagination-centered {
+  text-align: center; }
+
 /* Input field that looks like a button */
 .email-field {
-  width: 80px;
+  margin: 0 auto;
   display: inline-block;
   color: #8B9DC3;
   text-align: center;
@@ -13,7 +16,8 @@
   cursor: pointer;
   outline: none;
   border-radius: 4px;
-  transition: all .1s linear; }
+  transition: all .1s linear;
+  font-size: 1rem; }
 
 .email-field:hover {
   background-color: #3B5998; }
@@ -21,15 +25,10 @@
 .email-field.showForm {
   width: 200px; }
 
-/* after button is clicked */
-/* Email submit button */
 #submit-button {
   color: #005B96;
   font-size: 2.5rem;
   border: none; }
-  #submit-button span {
-    position: absolute;
-    top: 66%; }
   #submit-button:hover {
     color: #011F4B; }
 
@@ -39,15 +38,6 @@
 #subject-button.show {
   display: inline-block;
   background-size: 33px; }
-
-/* vertically position everything for effect */
-@media screen and (min-width: 480px) {
-  .middle {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%); } }
 
 .container {
   width: 260px;
