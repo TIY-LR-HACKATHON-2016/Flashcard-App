@@ -18,14 +18,9 @@
     </form>
   </div>
 
-  <section class="card-container" ng-repeat="card in flashCtrl.cards">
-    <div class="card"
-      ng-click="flashCtrl.toggleClass(card)"
-      ng-class="{ 'flipped': card.flipped }">
-      <figure class="front">{{ card.fronttext }}</figure>
-      <figure class="back">{{ card.backtext }}</figure>
+    <div class="fluid-container" ng-repeat="subject in subjectCtrl.subject">
+      <h1>{{ subject.SubjectName }}</h1>
     </div>
-  </section>
 
 
 </div>

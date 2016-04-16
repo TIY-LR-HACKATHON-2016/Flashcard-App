@@ -20,7 +20,7 @@ class SubjectController {
 
 	getData() {
 		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/subjects/create`)
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/subjects/index`)
 		.then((response) => {
 			console.log(response);
 			this.subject = response.data;
@@ -39,6 +39,7 @@ class SubjectController {
 				this.newSubject = "";
 				this.showForm = false;
 				this.placeholder = "+";
+				this.subject.push(response.data);
 			})
 			.catch((error) => {
 				console.log(error);
