@@ -17,7 +17,8 @@ namespace Flashcards.Web.Controllers
         // GET: Cards
         public ActionResult Index()
         {
-            return View(db.Cards.ToList());
+            //TODO: Sort by set (make sure sets != null first)
+            return Json(db.Cards.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         // GET: Cards/Details/5
@@ -32,7 +33,7 @@ namespace Flashcards.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(card);
+            return Json(card, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Cards/Create
@@ -46,16 +47,16 @@ namespace Flashcards.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,frontText,backText")] Card card)
+        public ActionResult Create([Bind(Include = "frontText,backText")] Card card)
         {
             if (ModelState.IsValid)
             {
                 db.Cards.Add(card);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(card, JsonRequestBehavior.AllowGet);
             }
 
-            return View(card);
+            return Content("Nope (Bad Card Model)");
         }
 
         // GET: Cards/Edit/5
@@ -82,11 +83,18 @@ namespace Flashcards.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(card).State = EntityState.Modified;
+                var newCard = db.Cards.Find(card.Id);
+                if (newCard == null)
+                {
+                    return Content("Nope (Bad Card Model to edit)");
+                }
+                newCard.frontText = card.frontText;
+                newCard.backText = card.backText;
+
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(card, JsonRequestBehavior.AllowGet);
             }
-            return View(card);
+            return Content("Nope (Bad Card Model to edit)");
         }
 
         // GET: Cards/Delete/5
@@ -112,7 +120,7 @@ namespace Flashcards.Web.Controllers
             Card card = db.Cards.Find(id);
             db.Cards.Remove(card);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
         protected override void Dispose(bool disposing)
