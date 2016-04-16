@@ -1,0 +1,42 @@
+﻿@model Flashcards.Web.Models.Card
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Card</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.frontText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.frontText)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.backText)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.backText)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
