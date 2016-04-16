@@ -31,15 +31,20 @@ namespace Flashcards.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
+            
             var subject = new Subject();
             subject.Name = "Physics";
+            context.Subjects.Add(subject);
+
             var set1 = new Set();
             set1.Name = "Quantum Physics";
             set1.Subject = subject;
+            context.Sets.Add(set1);
+
             var set2 = new Set();
             set2.Name = "Real Physics";
             set2.Subject = subject;
+            context.Sets.Add(set2);
 
             var cards = Builder<Card>.CreateListOfSize(40)
                 .All().With(x => x.frontText = Faker.NameFaker.MaleFirstName())
@@ -50,6 +55,8 @@ namespace Flashcards.Web.Migrations
                 .With(x=>x.Set=set2) 
                 .Random(20)
                 .Build();
+            context.Cards.AddRange(cards);
+            context.SaveChanges();
         }
     }
 }
