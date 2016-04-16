@@ -3,7 +3,8 @@
 
 
 <div class="card-container" ng-repeat="card in flashCtrl.cards">
-  <div id="flipper" ontouchstart="this.classList.toggle('hover');">
+  <div id="flipper" ng-click="flashCtrl.toggleClass(card)"
+    ng-class="{ 'flipped': card.flipped }">
     <div class="card-front">
       <h1>{{ card.frontText }}</h1>
     </div>
@@ -13,7 +14,7 @@
   </div>
   </div>
 
-  <h1>Card</h1>
+  <!-- <h1>Card</h1> -->
 
   <!-- <div id="flipper" ng-click="flashCtrl.toggleClass(card)"
     ng-class="{ 'flipped': card.flipped }"> -->
