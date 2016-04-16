@@ -17,7 +17,8 @@ namespace Flashcards.Web.Controllers
         // GET: Subjects
         public ActionResult Index()
         {
-            return Json(db.Subjects.ToList(), JsonRequestBehavior.AllowGet);
+            var model = db.Subjects.Select(s => new { SubjectName = s.Name, setcount = s.Sets.Count()}).ToList();
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Subjects/Details/5
