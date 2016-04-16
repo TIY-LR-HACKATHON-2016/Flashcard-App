@@ -39,6 +39,13 @@
       color: green;
       position: absolute;
       @include fill-box;
+    }
 
+    & .card-back {
+      transform: rotateY(180deg);
+    }
+
+    & .flipped {
+      transform: rotateY(180deg);
     }
 }

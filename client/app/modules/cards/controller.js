@@ -11,12 +11,12 @@ class FlashController {
   getData() {
 		this.cards = [
 			{ id: 1,
-				frontText: "Bob",
-				backText: "Smith"
+				frontText: "Title",
+				backText: "description"
 			},
 			{ id: 2,
-				frontText: "Joe",
-				backText: "Whatever"
+				frontText: "Title2",
+				backText: "description2"
 			}
 		]
 		// this._$http
