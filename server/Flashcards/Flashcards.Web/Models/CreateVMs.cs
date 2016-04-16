@@ -27,6 +27,7 @@ namespace Flashcards.Web.Models
         public string Name { get; set; }
         [Required]
         public int SubjectId { get; set; }
+        public string ImgURL { get; set; }
     }
 
 
@@ -34,5 +35,6 @@ namespace Flashcards.Web.Models
     {
         [Required]
         public string Name { get; set; }
+        public string ImgURL { get; set; }
     }
 }

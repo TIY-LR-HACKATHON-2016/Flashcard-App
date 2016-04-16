@@ -67,6 +67,11 @@ namespace Flashcards.Web.Controllers
                 Name = set.Name,
                 Subject = sub
             };
+            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+            if (imgRegex.IsMatch(set.ImgURL))
+            {
+                newSet.ImgURL = set.ImgURL;
+            }
             db.Sets.Add(newSet);
             db.SaveChanges();
             return Json(set, JsonRequestBehavior.AllowGet);
@@ -83,6 +88,11 @@ namespace Flashcards.Web.Controllers
             {
                 Name = subject.Name,
             };
+            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+            if (imgRegex.IsMatch(subject.ImgURL))
+            {
+                newSub.ImgURL = subject.ImgURL;
+            }
             db.Subjects.Add(newSub);
             db.SaveChanges();
             return Json(subject, JsonRequestBehavior.AllowGet);
