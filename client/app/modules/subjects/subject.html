@@ -25,7 +25,10 @@
       ng-class="{ 'showForm': subjectCtrl.showForm }"
       class="email-field" placeholder="{{ subjectCtrl.placeholder }}">
 
-    <input type="submit" id="subject-button" value="Add Subject" ng-show="subjectCtrl.showForm">
+
+    <button id="submit-button" type="submit" value="Add Subject" ng-show="subjectCtrl.showForm">
+      <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+    </button>
 
   </div>
 </div>

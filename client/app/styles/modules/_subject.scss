@@ -29,11 +29,12 @@
 	cursor: inherit;
 }
 
+
 /* Email submit button */
-#subject-button {
+.submitForm {
 	width: 35px;
 	height: 35px;
-	border: none;
+
   opacity: .25;
 	background-color: green;
 	transition: all .2s linear;
@@ -42,6 +43,18 @@
 
 	display: none;
 }
+
+#submit-button {
+  color: $accent;
+  font-size: 2.5rem;
+  border: none;
+
+    & span {
+      position: absolute;
+      top: 66%;
+    }
+}
+
 #subject-button:hover {
 	opacity: .33;
 }
