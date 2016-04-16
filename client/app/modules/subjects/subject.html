@@ -5,12 +5,21 @@
 
 <input type="submit" value="Add Subject" ng-click="flashCtrl.getData()"> -->
 
+<!-- <section class="container" ng-repeat="card in flashCtrl.cards">
+  <div class="card"
+    ng-click="flashCtrl.toggleClass(card)"
+    ng-class="{ 'flipped': card.flipped }">
+    <figure class="front">{{ card.frontText }}</figure>
+    <figure class="back">{{ card.backText }}</figure>
+  </div>
+</section> -->
+
 //MORPHING INPUT FIELD BUTTON -----------------------------------------------------
 <div class="wrapper">
 
   <div class="middle">
 
-    <h2>Morphing Input Field Button</h2>
+    <h2>Subject</h2>
 
     <input type="email" value="" name="EMAIL" class="email-field" id="email-field" placeholder="Tell me more">
 

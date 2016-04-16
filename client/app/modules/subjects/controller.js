@@ -1,6 +1,5 @@
 
-class FlashController {
-
+class SubjectController {
 	constructor($http) {
     this._$http = $http;
 		// this.id = $stateParams.id;
@@ -9,14 +8,14 @@ class FlashController {
 		this.getData();
 	}
 
-	toggleClass(card) {
-		if (card.flipped === true) {
-			card.flipped = false;
-		}
-		else {
-			card.flipped = true;
-		}
-	}
+	// toggleClass(card) {
+	// 	if (card.flipped === true) {
+	// 		card.flipped = false;
+	// 	}
+	// 	else {
+	// 		card.flipped = true;
+	// 	}
+	// }
 
 
 
@@ -32,13 +31,11 @@ class FlashController {
 
 //TEST DATA -------------------------------------------------------------------
 			this.cards = [
-			{ id: 1,
-				frontText: "Title",
-				backText: "description"
+			{ name: "Test Name",
+				id: 5
 			},
-			{ id: 2,
-				frontText: "Title2",
-				backText: "description2"
+			{ name: "Test Name2",
+				id: 6
 			}
 		]
 	//-------------------------------------------------------------------
@@ -47,4 +44,4 @@ class FlashController {
 
 }
 
-export default FlashController
+export default SubjectController

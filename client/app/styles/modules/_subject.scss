@@ -1,13 +1,6 @@
-
-/* style input field text */------------------------------------------------
-::-webkit-input-placeholder {
-   color: $accent;
-   opacity: .8;
-}
-
-/* Input field that looks like a button */------------------------------------
+/* Input field that looks like a button */
 .email-field {
-	width: 80px;
+  width: 80px;
 	display: inline-block;
 	color: $accent;
 	text-align: center;
@@ -23,7 +16,7 @@
 	background-color: $dark-base;
 }
 
-/* after button is clicked */-------------------------------------------------------
+/* after button is clicked */
 .email-field.active {
 	width: 200px;
 	outline: none;
@@ -32,7 +25,7 @@
 	cursor: inherit;
 }
 
-/* Email submit button */----------------------------------------------------------------
+/* Email submit button */
 #subscribe-button {
 	width: 35px;
 	height: 35px;
@@ -42,8 +35,6 @@
 	background: url(http://helixpowered.com/assets/img/arrow-circle-on-right.svg) no-repeat;
 	background-size: 13px;
 	background-position: 0 1px;
-	-webkit-transition: all .2s linear;
-	-moz-transition: all .2s linear;
 	transition: all .2s linear;
 
 	cursor: pointer; /* for demo only */
@@ -59,7 +50,7 @@
 	background-size: 33px;
 }
 
-/* vertically position everything for effect */---------------------------------------------
+/* vertically position everything for effect */
 @media screen and (min-width: 480px) {
 
 	.middle {
@@ -68,11 +59,5 @@
 		top: 50%;
 		left: 50%;
 		transform: translateX(-50%) translateY(-50%);
-  }
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
   }
 }
