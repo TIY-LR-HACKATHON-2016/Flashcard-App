@@ -16,14 +16,16 @@
 	outline: none;
 	border-radius: 4px;
 	transition: all .1s linear;
-  font-size: 1rem;;
+  font-size: 2rem;
+
+
 }
 .email-field:hover {
 	background-color: $mid-tone;
 }
 
 .email-field.showForm {
-  width: 200px;
+  // width: 200px;
 }
 
 #submit-button {

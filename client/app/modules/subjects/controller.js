@@ -19,32 +19,15 @@ class SubjectController {
 	}
 
 
-	addClass(active) {
-		//add class active on click
-	}
-
-
-
-
-  getData() {
-		// this._$http
-		// .get(`http://tiy-lr-flashcards.azurewebsites.net/subjects/create`)
-		// .then((response) => {
-		// 	console.log(response);
-		// 	this.cards = response.data;
-		// });
-
-
-
 //TEST DATA -------------------------------------------------------------------
-			this.cards = [
-			{ name: "Test Name",
-				id: 5
-			},
-			{ name: "Test Name2",
-				id: 6
-			}
-		]
+		// 	this.cards = [
+		// 	{ name: "Test Name",
+		// 		id: 5
+		// 	},
+		// 	{ name: "Test Name2",
+		// 		id: 6
+		// 	}
+		// ]
 	//-------------------------------------------------------------------
 
   }
@@ -54,7 +37,7 @@ class SubjectController {
 
 		this._$http
 			.post('http://tiy-lr-flashcards.azurewebsites.net/subjects/create', {
-				Name: "test"
+				Name: this.newSubject
 			})
 			.then((response) => {
 				console.log(response);

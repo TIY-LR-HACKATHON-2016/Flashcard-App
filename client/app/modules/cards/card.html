@@ -1,6 +1,6 @@
 
 
-<section class="container" ng-repeat="card in flashCtrl.cards">
+<section class="card-container" ng-repeat="card in flashCtrl.cards">
   <div class="card"
     ng-click="flashCtrl.toggleClass(card)"
     ng-class="{ 'flipped': card.flipped }">

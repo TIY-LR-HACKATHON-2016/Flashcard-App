@@ -1,11 +1,11 @@
 @import "./modules/subject";
 @import "./modules/set";
 
-.container {
+.card-container {
   width: 260px;
   height: 200px;
   position: relative;
-  margin: 0 auto 40px;
+  margin: 0 10px 10px 0;
   perspective: 800px;
   display: inline-block;
 }
@@ -16,11 +16,10 @@
   position: absolute;
   transition: transform 1s;
   transform-style: preserve-3d;
-  transform-origin: right center;
 }
 
 .card.flipped {
-  transform: translateX( -100% ) rotateY( -180deg );
+  transform: translateX( -0% ) rotateX( -180deg );
 }
 
 .card figure {
@@ -43,5 +42,5 @@
 
 .card .back {
   background: $mid-tone;
-  transform: rotateY( 180deg );
+  transform: rotateX( 180deg );
 }

@@ -10,7 +10,7 @@ let App = angular.module('app', [
   'subject'
 ]);
 
-function config($urlRouterProvider) {
+function config($urlRouterProvider, $httpProvider) {
   $urlRouterProvider.otherwise("/");
 }
 

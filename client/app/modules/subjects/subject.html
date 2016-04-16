@@ -1,19 +1,4 @@
 
-<!-- DRAFT ------------------------------------------------------------------------------------->
-<!-- <h1>Subject</h1>
-<input type="text" placeholder="Subject" ng-model="flashCtrl">
-
-<input type="submit" value="Add Subject" ng-click="flashCtrl.getData()"> -->
-
-<!-- <section class="container" ng-repeat="card in flashCtrl.cards">
-  <div class="card"
-    ng-click="flashCtrl.toggleClass(card)"
-    ng-class="{ 'flipped': card.flipped }">
-    <figure class="front">{{ card.fronttext }}</figure>
-    <figure class="back">{{ card.backText }}</figure>
-  </div>
-</section> -->
-
 <!-- MORPHING INPUT FIELD BUTTON ----------------------------------------------------------->
 <div class="wrapper">
 
@@ -21,15 +6,16 @@
 
     <h2>Subject</h2>
 
-    <input ng-focus="subjectCtrl.toggleForm()" ng-model="subjectCtrl.newSubject" type="text"
-      ng-class="{ 'showForm': subjectCtrl.showForm }"
-      class="email-field" placeholder="{{ subjectCtrl.placeholder }}">
+    <form ng-submit="subjectCtrl.createSubject()">
+      <input ng-focus="subjectCtrl.toggleForm()" ng-model="subjectCtrl.newSubject" type="text"
+        ng-class="{ 'showForm': subjectCtrl.showForm }"
+        class="email-field" placeholder="{{ subjectCtrl.placeholder }}">
 
 
-    <button id="submit-button" type="submit" value="Add Subject" ng-show="subjectCtrl.showForm"
-              ng-click="subjectCtrl.createSubject()">
-      <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
-    </button>
+      <button id="submit-button" type="submit" value="Add Subject" ng-show="subjectCtrl.showForm">
+        <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+      </button>
+    </form>
 
   </div>
 </div>
