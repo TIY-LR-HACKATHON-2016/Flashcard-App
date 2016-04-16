@@ -2,9 +2,8 @@
 class FlashController {
 
 
-	constructor($http, $stateParams) {
+	constructor($http) {
     this._$http = $http;
-		this.id = $stateParams.id;
 
 		this.getData();
 	}
@@ -14,6 +13,10 @@ class FlashController {
 			{ id: 1,
 				frontText: "Bob",
 				backText: "Smith"
+			},
+			{ id: 2,
+				frontText: "Joe",
+				backText: "Whatever"
 			}
 		]
 		// this._$http

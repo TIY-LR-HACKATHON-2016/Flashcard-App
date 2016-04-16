@@ -3,9 +3,9 @@ import uiRouter from 'angular-ui-router';
 
 import cards from './modules/cards';
 
-
 let App = angular.module('app', [
-  'ui.router'
+  'ui.router',
+  'card'
 ]);
 
 function config($urlRouterProvider) {

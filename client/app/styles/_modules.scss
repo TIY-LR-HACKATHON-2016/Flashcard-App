@@ -1,12 +1,20 @@
 @mixin box {
   width: 200px;
   height: 200px;
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+}
 
+@mixin fill-box {
+  width: 100%;
+  height: 100%;
 }
 
 .card-container {
   @include box;
-
+  background-color: blue;
+  perspective: 500px;
 }
 
 .card-front {
@@ -16,6 +24,21 @@
 
 .card-back {
   @include box;
-  background-color: blue;
+  background-color: orange;
+}
 
+#card {
+  @include fill-box;
+  text-align: center;
+  position: absolute;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+
+    & p {
+      color: green;
+      position: absolute;
+      @include fill-box;
+
+    }
 }
