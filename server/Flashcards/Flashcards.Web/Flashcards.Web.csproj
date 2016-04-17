@@ -169,11 +169,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\FlashcardsController.cs" />
-    <Compile Include="Controllers\SubjectsController.cs" />
-    <Compile Include="Controllers\SetsController.cs" />
-    <Compile Include="FlashcardsDbContext.cs" />
+    <Compile Include="Models\FlashcardsDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,15 +235,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
-    <Content Include="Views\Cards\Create.cshtml" />
-    <Content Include="Views\Cards\Delete.cshtml" />
-    <Content Include="Views\Cards\Details.cshtml" />
-    <Content Include="Views\Cards\Edit.cshtml" />
-    <Content Include="Views\Cards\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Flashcards\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
