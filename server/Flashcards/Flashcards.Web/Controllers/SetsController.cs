@@ -38,10 +38,10 @@ namespace Flashcards.Web.Controllers
         }
 
         // GET: Sets/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Sets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -61,19 +61,19 @@ namespace Flashcards.Web.Controllers
         }
 
         // GET: Sets/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Set set = db.Sets.Find(id);
-            if (set == null)
-            {
-                return HttpNotFound();
-            }
-            return View(set);
-        }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Set set = db.Sets.Find(id);
+        //    if (set == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(set);
+        //}
 
         // POST: Sets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -99,19 +99,19 @@ namespace Flashcards.Web.Controllers
         }
 
         // GET: Sets/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Set set = db.Sets.Find(id);
-            if (set == null)
-            {
-                return HttpNotFound();
-            }
-            return View(set);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Set set = db.Sets.Find(id);
+        //    if (set == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(set);
+        //}
 
         // POST: Sets/Delete/5
         [HttpPost, ActionName("Delete")]

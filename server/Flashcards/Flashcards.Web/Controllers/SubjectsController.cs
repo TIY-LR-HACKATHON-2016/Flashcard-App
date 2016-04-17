@@ -36,11 +36,11 @@ namespace Flashcards.Web.Controllers
             return Json(subject, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Subjects/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //// GET: Subjects/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Subjects/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -59,19 +59,19 @@ namespace Flashcards.Web.Controllers
         }
 
         // GET: Subjects/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subject subject = db.Subjects.Find(id);
-            if (subject == null)
-            {
-                return HttpNotFound();
-            }
-            return View(subject);
-        }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Subject subject = db.Subjects.Find(id);
+        //    if (subject == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(subject);
+        //}
 
         // POST: Subjects/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -94,19 +94,19 @@ namespace Flashcards.Web.Controllers
         }
 
         // GET: Subjects/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Subject subject = db.Subjects.Find(id);
-            if (subject == null)
-            {
-                return HttpNotFound();
-            }
-            return View(subject);
-        }
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Subject subject = db.Subjects.Find(id);
+        //    if (subject == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(subject);
+        //}
 
         // POST: Subjects/Delete/5
         [HttpPost, ActionName("Delete")]
