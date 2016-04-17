@@ -41,7 +41,7 @@
 }
 
 .card .front {
-  background: $mid-tone;
+  background: $card-front-color;
   font-size: 3em;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .editing {
-  color: white;
+  color: $dark;
 }
 
 .bottom-buttons {
@@ -74,4 +74,11 @@
     bottom: 14px;
     left: 4px;
   }
+}
+
+#submit-style {
+  border-radius: 3px;
+  border: none;
+  background-color: $darker-mid;
+  color: $light;
 }

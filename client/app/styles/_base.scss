@@ -4,4 +4,20 @@
 
 .wrapper {
   background-color: $dark;
+  padding-top: 10px;
+  height: 2000px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+}
+
+span {
+  color: $mid-tone;
+}
+
+input {
+  display: block;
 }

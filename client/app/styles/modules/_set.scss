@@ -1,11 +1,19 @@
 
 .col-md-8 {
-  border-bottom: 1px solid $dark;
+  border-bottom: 1px solid $darker-mid;
 
     & a {
-    color: $darker-mid;
+    color: $accent;
     font-size: 2rem;
+    text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+        color: $light;
+      }
   }
+
+
 }
 
 #set-trash {
