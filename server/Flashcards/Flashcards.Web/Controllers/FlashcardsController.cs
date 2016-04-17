@@ -35,14 +35,20 @@ namespace Flashcards.Web.Controllers
             }
             newCard.Set = set;
 
-            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
-            if (!imgRegex.IsMatch(card.FrontImgURL))
+            var imgRegex = new Regex("(jpg|png|gif|bmp)$");
+            if (card.FrontImgURL != null)
             {
-                card.FrontImgURL = null;
+                if (!imgRegex.IsMatch(card.FrontImgURL))
+                {
+                    card.FrontImgURL = null;
+                }
             }
-            if (!imgRegex.IsMatch(card.BackImgURL))
+            if (card.BackImgURL != null)
             {
-                card.BackImgURL = null;
+                if (!imgRegex.IsMatch(card.BackImgURL))
+                {
+                    card.BackImgURL = null;
+                }
             }
 
             db.Cards.Add(newCard);
@@ -68,10 +74,13 @@ namespace Flashcards.Web.Controllers
                 Name = set.Name,
                 Subject = sub
             };
-            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
-            if (imgRegex.IsMatch(set.ImgURL))
+            if (set.ImgURL != null)
             {
-                newSet.ImgURL = set.ImgURL;
+                var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+                if (imgRegex.IsMatch(set.ImgURL))
+                {
+                    newSet.ImgURL = set.ImgURL;
+                }
             }
             db.Sets.Add(newSet);
             db.SaveChanges();
@@ -89,10 +98,13 @@ namespace Flashcards.Web.Controllers
             {
                 Name = subject.Name,
             };
-            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
-            if (imgRegex.IsMatch(subject.ImgURL))
+            if (subject.ImgURL != null)
             {
-                newSub.ImgURL = subject.ImgURL;
+                var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+                if (imgRegex.IsMatch(subject.ImgURL))
+                {
+                    newSub.ImgURL = subject.ImgURL;
+                }
             }
             db.Subjects.Add(newSub);
             db.SaveChanges();
@@ -100,11 +112,10 @@ namespace Flashcards.Web.Controllers
         }
 
 
-
+        
         public ActionResult ViewSet(int Id)
         {
-            var model = db.Cards.Where(s => s.Set.Id == Id).Select(c => new
-            {
+            var model = db.Cards.Where(s=>s.Set.Id==Id).Select(c => new {
                 fronttext = c.frontText,
                 backtext = c.backText,
                 id = c.Id,
@@ -119,7 +130,7 @@ namespace Flashcards.Web.Controllers
         }
 
 
-
+        
         public ActionResult ViewSubject(int Id)
         {
             var model = db.Sets.Where(s => s.Subject.Id == Id).Select(c => new
@@ -128,7 +139,7 @@ namespace Flashcards.Web.Controllers
                 id = c.Id,
                 count = c.Cards.Count
             }).ToList();
-            if (model.Count == 0)
+            if (model.Count== 0)
             {
                 return Content("nope, that's not a subject");
             }
@@ -137,7 +148,7 @@ namespace Flashcards.Web.Controllers
         }
 
 
-
+        
         public ActionResult ViewCard(int Id)
         {
             var card = db.Cards.Find(Id);
@@ -156,12 +167,12 @@ namespace Flashcards.Web.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
-
+        
         public ActionResult IndexSubject()
         {
             var model = db.Subjects.Select(x => new
             {
-                name = x.Name,
+                name= x.Name,
                 id = x.Id,
                 count = x.Sets.Count
             });
@@ -170,132 +181,131 @@ namespace Flashcards.Web.Controllers
 
         //Edit 
         [HttpPost]
-        public ActionResult EditCard(EditCardVM editCard)
+        public ActionResult EditCard([Bind(Include = "frontText, backText, FrontImgURL, BackImgURL, Id")] Card card)
         {
             if (ModelState.IsValid)
             {
-                var newCard = db.Cards.Find(editCard.Id);
+                var newCard = db.Cards.Find(card.Id);
                 if (newCard == null)
                 {
-                    return Content("Sorry, Card not in DataBase)");
-                }
-                //TODO: check if SetId is valid set
-                var setFind = db.Sets.Find(editCard.SetId);
-                if (setFind == null)
-                {
-                    return Content("Sorry, Card not in DataBase");
-                }
-                if (editCard.FrontImgURL != null)
-                {
-                    newCard.FrontImgURL = editCard.FrontImgURL;
-                }
-                if (editCard.BackImgURL != null)
-                {
-                    newCard.BackImgURL = editCard.BackImgURL;
-                }
-                if (editCard.frontText != null)
-                {
-                    newCard.frontText = editCard.frontText;
-                }
-                if (editCard.backText != null)
-                {
-                    newCard.backText = editCard.backText;
+                    return Content("Sorry,1 Card not in DataBase)");
                 }
 
-
+                newCard.FrontImgURL = card.FrontImgURL;
+                newCard.BackImgURL = card.BackImgURL;
+                newCard.frontText = card.frontText;
+                newCard.backText = card.backText;
+                newCard.Id = card.Id;
 
                 db.SaveChanges();
-
-                var model =
-                    new
-                    {
-                        newCard.backText,
-                        newCard.frontText,
-                        newCard.BackImgURL,
-                        newCard.FrontImgURL,
-                        newCard.Id
-                    };
-
-                return Json(model, JsonRequestBehavior.AllowGet);
+                return Json(card, JsonRequestBehavior.AllowGet);
             }
-            return Content("Sorry, Card not in DataBase"); ;
+            return Json(card, JsonRequestBehavior.AllowGet); ;
 
 
         }
 
         [HttpPost]
-        public ActionResult EditSet(EditSetVM editSet)
+        public ActionResult EditSet(Set set)
         {
-            if (ModelState.IsValid)
+            var newSet = db.Sets.Find(set.Id);
+            //Set newSet = db.Sets.Find(set);
+            if (newSet == null)
             {
-                var newSet = db.Sets.Find(editSet.Id);
-                if (newSet == null)
-                {
-                    return Content("Sorry, Card not in DataBase)");
-                }
-
-                newSet.Name = editSet.Name;
-                newSet.ImgURL = editSet.ImgURL;
-
-                return Json(newSet, JsonRequestBehavior.AllowGet);
-
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-
-
+            newSet.Id = set.Id;
+            newSet.Name = set.Name;
+            // newSet.ImgURL = set.ImgURL; 
+            //TODO set img url
             db.SaveChanges();
 
-            return Json(editSet, JsonRequestBehavior.AllowGet);
+            return Json(set, JsonRequestBehavior.AllowGet);
         }
 
 
         [HttpPost]
-        public ActionResult EditSubject(Subject subject)
+        public ActionResult EditSubject([Bind(Include = "Name, Id")] Subject subject)
         {
             var newSubject = db.Subjects.Find(subject.Id);
-
-            if (newSubject == null)
+            Subject newsubject = db.Subjects.Find(subject.Id);
+            if (subject == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             newSubject.Name = subject.Name;
-            newSubject.ImgURL = subject.ImgURL;
-            db.SaveChanges();
+            newSubject.Id = subject.Id;
 
-            return Json(newSubject, JsonRequestBehavior.AllowGet);
+            db.SaveChanges();
+            if (newsubject == null)
+            {
+                return Content("Sorry,3 Subject is not in DataBase");
+            }
+            return Json(subject, JsonRequestBehavior.AllowGet);
         }
 
 
         //Delete
         [HttpPost]
-        public ActionResult DeleteCard(int id)
+        public ActionResult DeleteCard(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             Card card = db.Cards.Find(id);
+            if (card == null)
+            {
+                return HttpNotFound();
+            }
             db.Cards.Remove(card);
             db.SaveChanges();
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            
+            return Content("Deleted Card");
         }
 
-
         [HttpPost]
-        public ActionResult DeleteSet(int id)
+        public ActionResult DeleteSet(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             Set set = db.Sets.Find(id);
+            if (set == null)
+            {
+                return HttpNotFound();
+            }
+
             db.Sets.Remove(set);
             db.SaveChanges();
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
+            return Content("Deleted Set");
         }
 
         [HttpPost]
-        public ActionResult DeleteSubject(int id)
+        public ActionResult DeleteSubject(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Subject subject = db.Subjects.Find(id);
+            if (subject == null)
+            {
+                return Content("Why for 404?");
+            }
+
             db.Subjects.Remove(subject);
             db.SaveChanges();
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
+            return Content("Deleted Subject");
         }
+
+
     }
 }

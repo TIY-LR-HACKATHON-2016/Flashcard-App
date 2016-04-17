@@ -12,9 +12,7 @@ namespace Flashcards.Web.Models
         public string frontText { get; set; }
         [Required]
         public string backText { get; set; }
-        [Required]
         public string FrontImgURL { get; set; }
-        [Required]
         public string BackImgURL { get; set; }
         [Required]
         public int SetId { get; set; }
