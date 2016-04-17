@@ -112,10 +112,11 @@ namespace Flashcards.Web.Controllers
         }
 
 
-        
+
         public ActionResult ViewSet(int Id)
         {
-            var model = db.Cards.Where(s=>s.Set.Id==Id).Select(c => new {
+            var model = db.Cards.Where(s => s.Set.Id == Id).Select(c => new
+            {
                 fronttext = c.frontText,
                 backtext = c.backText,
                 id = c.Id,
@@ -130,7 +131,7 @@ namespace Flashcards.Web.Controllers
         }
 
 
-        
+
         public ActionResult ViewSubject(int Id)
         {
             var model = db.Sets.Where(s => s.Subject.Id == Id).Select(c => new
@@ -139,7 +140,7 @@ namespace Flashcards.Web.Controllers
                 id = c.Id,
                 count = c.Cards.Count
             }).ToList();
-            if (model.Count== 0)
+            if (model.Count == 0)
             {
                 return Content("nope, that's not a subject");
             }
@@ -148,7 +149,7 @@ namespace Flashcards.Web.Controllers
         }
 
 
-        
+
         public ActionResult ViewCard(int Id)
         {
             var card = db.Cards.Find(Id);
@@ -167,12 +168,12 @@ namespace Flashcards.Web.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
-        
+
         public ActionResult IndexSubject()
         {
             var model = db.Subjects.Select(x => new
             {
-                name= x.Name,
+                name = x.Name,
                 id = x.Id,
                 count = x.Sets.Count
             });
@@ -242,21 +243,24 @@ namespace Flashcards.Web.Controllers
                 var newSet = db.Sets.Find(editSet.Id);
                 if (newSet == null)
                 {
-                    return Content("Sorry, Card not in DataBase)");
+                    return Content("Sorry, Set not in DataBase)");
                 }
 
                 newSet.Name = editSet.Name;
                 newSet.ImgURL = editSet.ImgURL;
 
-                return Json(newSet, JsonRequestBehavior.AllowGet);
+                
+                var model =
+                    new
+                    {
+                        newSet.ImgURL,
+                        newSet.Id
+                    };
+                db.SaveChanges();
 
+                return Json(model, JsonRequestBehavior.AllowGet);
             }
-
-
-
-            db.SaveChanges();
-
-            return Json(editSet, JsonRequestBehavior.AllowGet);
+            return Content("Sorry Set not in DataBase.");
         }
 
 
@@ -295,7 +299,7 @@ namespace Flashcards.Web.Controllers
             }
             db.Cards.Remove(card);
             db.SaveChanges();
-            
+
             return Content("Deleted Card");
         }
 
