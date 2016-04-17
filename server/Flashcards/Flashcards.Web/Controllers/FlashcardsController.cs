@@ -43,6 +43,7 @@ namespace Flashcards.Web.Controllers
                     card.FrontImgURL = null;
                 }
             }
+
             if (card.BackImgURL != null)
             {
                 if (!imgRegex.IsMatch(card.BackImgURL))
@@ -74,9 +75,10 @@ namespace Flashcards.Web.Controllers
                 Name = set.Name,
                 Subject = sub
             };
+
             if (set.ImgURL != null)
             {
-                var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+                var imgRegex = new Regex("(jpg|png|gif|bmp)$");
                 if (imgRegex.IsMatch(set.ImgURL))
                 {
                     newSet.ImgURL = set.ImgURL;
@@ -98,14 +100,16 @@ namespace Flashcards.Web.Controllers
             {
                 Name = subject.Name,
             };
+
             if (subject.ImgURL != null)
             {
-                var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+                var imgRegex = new Regex("(jpg|png|gif|bmp)$");
                 if (imgRegex.IsMatch(subject.ImgURL))
                 {
                     newSub.ImgURL = subject.ImgURL;
                 }
             }
+
             db.Subjects.Add(newSub);
             db.SaveChanges();
             return Json(subject, JsonRequestBehavior.AllowGet);
@@ -115,13 +119,14 @@ namespace Flashcards.Web.Controllers
         
         public ActionResult ViewSet(int Id)
         {
-            var model = db.Cards.Where(s=>s.Set.Id==Id).Select(c => new {
+            var model = db.Sets.Find(Id).Cards.Select(c => new {
                 fronttext = c.frontText,
                 backtext = c.backText,
                 id = c.Id,
                 frontimg = c.FrontImgURL,
                 backimg = c.BackImgURL
             }).ToList();
+
             if (model.Count == 0)
             {
                 return Content("nope, that's not a set");
@@ -133,13 +138,13 @@ namespace Flashcards.Web.Controllers
         
         public ActionResult ViewSubject(int Id)
         {
-            var model = db.Sets.Where(s => s.Subject.Id == Id).Select(c => new
+            var model = db.Subjects.Find(Id).Sets.Select(s => new
             {
-                name = c.Name,
-                id = c.Id,
-                count = c.Cards.Count
+                name = s.Name,
+                id = s.Id,
+                count = s.Cards.Count
             }).ToList();
-            if (model.Count== 0)
+            if (model.Count == 0)
             {
                 return Content("nope, that's not a subject");
             }
@@ -190,7 +195,7 @@ namespace Flashcards.Web.Controllers
                 {
                     return Content("Sorry, Card not in DataBase)");
                 }
-                //TODO: check if SetId is valid set
+
                 var setFind = db.Sets.Find(editCard.SetId);
                 if (setFind == null)
                 {
@@ -213,8 +218,6 @@ namespace Flashcards.Web.Controllers
                     newCard.backText = editCard.backText;
                 }
 
-
-
                 db.SaveChanges();
 
                 var model =
@@ -230,33 +233,25 @@ namespace Flashcards.Web.Controllers
                 return Json(model, JsonRequestBehavior.AllowGet);
             }
             return Content("Sorry, Card not in DataBase"); ;
-
-
         }
 
         [HttpPost]
         public ActionResult EditSet(EditSetVM editSet)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var newSet = db.Sets.Find(editSet.Id);
-                if (newSet == null)
-                {
-                    return Content("Sorry, Card not in DataBase)");
-                }
-
-                newSet.Name = editSet.Name;
-                newSet.ImgURL = editSet.ImgURL;
-
-                return Json(newSet, JsonRequestBehavior.AllowGet);
-
+                return Content("Not a valid set");
+            }
+            var newSet = db.Sets.Find(editSet.Id);
+            if (newSet == null)
+            {
+                return Content("Sorry, set not in DataBase)");
             }
 
-
-
+            newSet.Name = editSet.Name;
+            newSet.ImgURL = editSet.ImgURL;
             db.SaveChanges();
-
-            return Json(editSet, JsonRequestBehavior.AllowGet);
+            return Json(newSet, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -267,7 +262,7 @@ namespace Flashcards.Web.Controllers
 
             if (newSubject == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return Content("Not a valid subject");
             }
 
             newSubject.Name = subject.Name;
