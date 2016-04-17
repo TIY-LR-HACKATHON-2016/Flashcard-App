@@ -1,4 +1,20 @@
 
+<div class="pagination-centered">
+
+  <h2>Flash Cards</h2>
+
+  <form ng-submit="flashCtrl.createCard()">
+    <input ng-focus="flashCtrl.toggleForm()" ng-model="flashCtrl.newCard" type="text"
+      ng-class="{ 'showForm': flashCtrl.showForm }"
+      class="email-field" placeholder="{{ flashCtrl.placeholder }}">
+
+
+    <button id="submit-button" type="submit" value="Add Card" ng-show="flashCtrl.showForm">
+      <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+    </button>
+  </form>
+</div>
+
 
 <section class="card-container" ng-repeat="card in flashCtrl.cards">
   <div class="card"

@@ -7,17 +7,6 @@ class SetController {
 		this.getData();
 	}
 
-	// toggleClass(card) {
-	// 	if (card.flipped === true) {
-	// 		card.flipped = false;
-	// 	}
-	// 	else {
-	// 		card.flipped = true;
-	// 	}
-	// }
-
-
-
   getData() {
 		this._$http
 		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewsubject/${this.subject}`)
@@ -25,23 +14,39 @@ class SetController {
 			console.log(response);
 			this.sets = response.data;
 		});
+	}
+
+		createSet() {
+			this._$http
+				.post(`http://tiy-lr-flashcards.azurewebsites.net/sets/${this.set}`{
+					Name: this.newSet
+				})
+				.then((response) => {
+					console.log(response);
+					this.newCard = "";
+					this.showForm = false;
+					this.placeholder = "+";
+					this.getData();
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+			}
 
 
 
 //TEST DATA -------------------------------------------------------------------
-			this.cards = [
-			{ name: "Test Name",
-				id: 5,
-				subject: "Test Subject"
-			},
-			{ name: "Test Name2",
-				id: 6,
-				subject: "Test Subject"
-			}
-		]
+		// 	this.cards = [
+		// 	{ name: "Test Name",
+		// 		id: 5,
+		// 		subject: "Test Subject"
+		// 	},
+		// 	{ name: "Test Name2",
+		// 		id: 6,
+		// 		subject: "Test Subject"
+		// 	}
+		// ]
 	//-------------------------------------------------------------------
-
-  }
 
 }
 

@@ -6,8 +6,13 @@ class FlashController {
 		this.set = $stateParams.set;
 		// this.id = $stateParams.id;
 		this.cards = [];
-
 		this.getData();
+
+		// form show/hide thing
+		this.newSubject = "";
+		this.showForm = false;
+		this.placeholder = "+";
+
 	}
 
 	toggleClass(card) {
@@ -20,7 +25,6 @@ class FlashController {
 	}
 
 
-
   getData() {
 		this._$http
 		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewset/${this.set}`)
@@ -28,8 +32,24 @@ class FlashController {
 			console.log(response);
 			this.cards = response.data;
 		});
+	}
 
-
+		createCard() {
+			this._$http
+				.post(`http://tiy-lr-flashcards.azurewebsites.net/cards/${this.card}`{
+					Name: this.newCard
+				})
+				.then((response) => {
+					console.log(response);
+					this.newCard = "";
+					this.showForm = false;
+					this.placeholder = "+";
+					this.getData();
+				})
+				.catch((error) => {
+					console.log(error);
+				})
+			}
 
 //TEST DATA -------------------------------------------------------------------
 		// 	this.cards = [
@@ -46,6 +66,5 @@ class FlashController {
 
   }
 
-}
 
 export default FlashController
