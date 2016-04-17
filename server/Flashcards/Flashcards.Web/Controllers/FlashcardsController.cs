@@ -192,17 +192,12 @@ namespace Flashcards.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var newCard = db.Cards.Find(editCard.Id);
+                var newCard = db.Cards.Include("Set").FirstOrDefault(s => s.Id == editCard.Id);
                 if (newCard == null)
                 {
                     return Content("Sorry, Card not in DataBase)");
                 }
-
-                var setFind = db.Sets.Find(editCard.SetId);
-                if (setFind == null)
-                {
-                    return Content("Sorry, Card not in DataBase");
-                }
+               
                 if (editCard.FrontImgURL != null)
                 {
                     newCard.FrontImgURL = editCard.FrontImgURL;
