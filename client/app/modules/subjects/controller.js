@@ -2,7 +2,7 @@
 class SubjectController {
 	constructor($http) {
     this._$http = $http;
-		this.subject = [];
+		this.subjects = [];
 		this.getData();
 
 		// form show/hide thing
@@ -48,12 +48,15 @@ class SubjectController {
 	}
 
 	deleteSubject(subject) {
+		console.log("trying to delete subject")
 	 this._$http
-	 .post(`'http://tiy-lr-flashcards.azurewebsites.net/flashcards/deletesubject/${subject.Id}'`)
+	 .post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/deletesubject/${subject.id}`)
 	 .then((response) => {
 		 this.subjects.splice(this.subjects.indexOf(subject), 1);
+		 console.log("spliced");
 	 });
  }
+
 
 
 }

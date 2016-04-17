@@ -61,9 +61,8 @@ class FlashController {
 	}
 
 	deleteCard(card) {
-		console.log("deleting?")
 	 this._$http
-	 .post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/deletecard/${card.Id}'`)
+	 .post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/deletecard/${card.id}`)
 	 .then((response) => {
 		 this.cards.splice(this.cards.indexOf(card), 1);
 	 });

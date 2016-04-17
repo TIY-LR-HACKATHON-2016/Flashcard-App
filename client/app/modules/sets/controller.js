@@ -46,7 +46,7 @@ class SetController {
 
 	deleteSet(set) {
 	 this._$http
-	 .post(`'http://tiy-lr-flashcards.azurewebsites.net/flashcards/deleteset/${set.Id}'`)
+	 .post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/deleteset/${set.id}`)
 	 .then((response) => {
 		 this.sets.splice(this.sets.indexOf(set), 1);
 	 });

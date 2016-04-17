@@ -48,6 +48,9 @@ h3 {
 
 .col-md-8 {
   border-bottom: 1px solid #011F4B; }
+  .col-md-8 a {
+    color: #03396C;
+    font-size: 2rem; }
 
 #set-trash {
   float: right; }
@@ -59,8 +62,6 @@ h3 {
   margin: 0 10px 10px 0;
   perspective: 800px;
   display: inline-block; }
-  .card-container:first-child {
-    margin-left: 10%; }
 
 .card {
   width: 100%;

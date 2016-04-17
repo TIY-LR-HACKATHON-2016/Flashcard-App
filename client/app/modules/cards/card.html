@@ -22,7 +22,8 @@
     ng-class="{ 'flipped': card.flipped }">
     <figure class="front">{{ card.fronttext }}</figure>
     <figure class="back">{{ card.backtext }}</figure>
-  </div>
-</section>
 
-<span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="cardCtrl.deleteCard(card)"></span>
+  </div>
+  <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="flashCtrl.deleteCard(card)"></span>
+
+</section>
