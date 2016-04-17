@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Faker;
@@ -19,10 +19,62 @@ namespace Flashcards.Web.Migrations
         {
             if (!context.Cards.Any())
             {
-                var music = new Subject() {Name = "Music"};
+                var movies = new Subject() { Name = "Movie and Actors" };
+                context.Subjects.Add(movies);
+                var moviesandActors = new Set()
+                {
+                    Name = "Movies and Actors",
+                    Subject = movies,
+                    Cards = new List<Card>()
+                    {
+                        new Card() {frontText = "Airplane!", backText = "Leslie Nielson"},
+                        new Card() {frontText = "Forrest Gump", backText = "Tom Hanks"},
+                        new Card() {frontText = "Office Space", backText = "Ron Livingston"},
+                        new Card() {frontText = "Toy Story", backText = "Tim Allen"},
+                        new Card() {frontText = "The Godfather", backText = "Marlon Brando"},
+                        new Card() {frontText = "Goldfinger", backText = "Sean Connery"}
+                    }
+                };
+
+
+                context.Sets.Add(moviesandActors);
+                var movieQuotes = new Set()
+                {
+                    Name = "Movie Quotes",
+                    Subject = movies,
+                    Cards = new List<Card>()
+                    {
+                        new Card() {frontText = "Surely you can't be serious! I am serious. And don't...", backText = "Call me Shirley."},
+                        new Card() {frontText = "My momma always said, Life was like a box of...", backText = "Potatoes"},
+                        new Card() {frontText = "It's not that I'm lazy, it's that...", backText = "I don't care."},
+                        new Card() {frontText = "To infinity...", backText = "And beyond!"},
+                        new Card() {frontText = "I'm gonna make him an offer he...", backText = "Can't refuse."},
+                        new Card() {frontText = "A martini. Shaken...", backText = "Not Stirred"}
+                    }
+                };
+                context.Sets.Add(movieQuotes);
+
+                var music = new Subject() { Name = "Music" };
                 context.Subjects.Add(music);
 
-                var songArtists = new Set() {Name = "Song and Artist", Subject = music};
+                var songArtists = new Set()
+                {
+                    Name = "Song and Artist",
+                    Subject = music,
+                    Cards = new List<Card>()
+                    {
+                        new Card() {frontText = "Work", backText = "Rihanna"},
+                        new Card() {frontText = "Stressed Out", backText = "Ywenty One Pilots"},
+                        new Card() {frontText = "7 Years", backText = "Lukas Graham"},
+                        new Card() {frontText = "NO", backText = "Meghan Trainor"},
+                        new Card() {frontText = "PILLOWTALK", backText = "ZAYN"},
+                        new Card() {frontText = "I Took A Pill In Ibiza", backText = "Mike Posner"},
+                        new Card() {frontText = "Cake By The Ocean", backText = "DNCE"},
+                        new Card() {frontText = "Somewhere On A Beach", backText = "Dierks Bentley"}
+                    }
+                };
+
+
                 var weeksAtNumberOne = new Set()
                 {
                     Name = "Consecutive Weeks at #1",
@@ -42,8 +94,10 @@ namespace Flashcards.Web.Migrations
                     }
                 };
 
-
                 context.Sets.Add(weeksAtNumberOne);
+                context.Sets.Add(songArtists);
+                context.Sets.Add(moviesandActors);
+                context.Sets.Add(movieQuotes);
                 context.SaveChanges();
             }
         }
