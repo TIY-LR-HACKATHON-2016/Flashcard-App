@@ -297,7 +297,7 @@ namespace Flashcards.Web.Controllers
             Subject subject = db.Subjects.Find(id);
             if (subject == null)
             {
-                return HttpNotFound();
+                return Content("Why for 404?");
             }
 
             db.Subjects.Remove(subject);
