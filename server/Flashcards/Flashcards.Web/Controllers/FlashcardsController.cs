@@ -251,17 +251,20 @@ namespace Flashcards.Web.Controllers
         [HttpPost]
         public ActionResult DeleteCard(int? id)
         {
-            Card card = db.Cards.Find(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            db.SaveChanges();
+
+            Card card = db.Cards.Find(id);
             if (card == null)
             {
                 return HttpNotFound();
             }
-            return Content("Sorry,4 Card not in DataBase");
+            db.Cards.Remove(card);
+            db.SaveChanges();
+            
+            return Content("Deleted Card");
         }
 
         [HttpPost]
@@ -273,12 +276,15 @@ namespace Flashcards.Web.Controllers
             }
 
             Set set = db.Sets.Find(id);
-            db.SaveChanges();
             if (set == null)
             {
                 return HttpNotFound();
             }
-            return Content("Sorry,5 Set is not in DataBase");
+
+            db.Sets.Remove(set);
+            db.SaveChanges();
+
+            return Content("Deleted Set");
         }
 
         [HttpPost]
@@ -289,12 +295,15 @@ namespace Flashcards.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Subject subject = db.Subjects.Find(id);
-            db.SaveChanges();
             if (subject == null)
             {
                 return HttpNotFound();
             }
-            return Content("Sorry,6 Subject is not in DataBase");
+
+            db.Subjects.Remove(subject);
+            db.SaveChanges();
+
+            return Content("Deleted Subject");
         }
 
 
