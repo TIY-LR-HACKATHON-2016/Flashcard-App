@@ -54,7 +54,10 @@ class SubjectController {
 	 .then((response) => {
 		 this.subjects.splice(this.subjects.indexOf(subject), 1);
 		 console.log("spliced");
+		 this.getData();
 	 });
+
+
  }
 
 
