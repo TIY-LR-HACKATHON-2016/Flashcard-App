@@ -36,7 +36,7 @@ class FlashController {
 
 		createCard() {
 			this._$http
-				.post(`http://tiy-lr-flashcards.azurewebsites.net/cards/${this.card}`{
+				.post(`http://tiy-lr-flashcards.azurewebsites.net/cards/${this.card}`, {
 					Name: this.newCard
 				})
 				.then((response) => {

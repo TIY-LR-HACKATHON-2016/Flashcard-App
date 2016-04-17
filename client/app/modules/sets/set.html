@@ -1,4 +1,18 @@
-<h1>Testing</h1>
+<div class="pagination-centered">
+
+  <h2>Sets</h2>
+
+  <form ng-submit="subjectCtrl.createSet()">
+    <input ng-focus="setCtrl.toggleForm()" ng-model="seCtrl.newSubject" type="text"
+      ng-class="{ 'showForm': setCtrl.showForm }"
+      class="email-field" placeholder="{{ setCtrl.placeholder }}">
+
+
+    <button id="submit-button" type="submit" value="Add Set" ng-show="setCtrl.showForm">
+      <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+    </button>
+  </form>
+</div>
 
 <div class="row" ng-repeat="set in setCtrl.sets">
   <div class="col-md-1">
