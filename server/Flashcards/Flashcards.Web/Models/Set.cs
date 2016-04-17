@@ -11,5 +11,7 @@ namespace Flashcards.Web.Models
         public string Name { get; set; }
         [Required]
         public virtual Subject Subject { get; set; }
+
+        public string ImgURL { get; set; }
     }
 }
