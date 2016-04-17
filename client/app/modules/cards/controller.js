@@ -7,8 +7,7 @@ class FlashController {
 		// this.id = $stateParams.id;
 		this.cards = [];
 		this.getData();
-
-		// form show/hide thing
+		// form show/hide //
 		this.newCardFront = "";
 		this.newCardBack = "";
 		this.showForm = false;
@@ -45,7 +44,6 @@ class FlashController {
 			})
 		}
 
-
 	toggleForm() {
 		this.placeholder = "New Card Front";
 		this.showForm = true;
@@ -67,6 +65,14 @@ class FlashController {
 		 this.cards.splice(this.cards.indexOf(card), 1);
 	 });
  }
+
+	// editCard(card) {
+	// 	this._$http
+	// 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editcard/${card.id}`)
+	// 	.then((response) => {
+	// 		this.cards.push("");
+	// 	})
+	// }
 
 
 

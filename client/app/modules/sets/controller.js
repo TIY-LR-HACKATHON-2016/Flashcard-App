@@ -52,6 +52,14 @@ class SetController {
 	 });
  }
 
+ // editSet(set) {
+ // 	this._$http
+ // 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editset/${set.id}`)
+ // 	.then((response) => {
+ // 		this.set.push("");
+ // 	})
+ // }
+
 
 
 

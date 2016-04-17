@@ -4,12 +4,10 @@ class SubjectController {
     this._$http = $http;
 		this.subjects = [];
 		this.getData();
-
-		// form show/hide thing
+		//form show/hide//
  		this.newSubject = "";
 		this.showForm = false;
 		this.placeholder = "+";
-
 	}
 
 	toggleForm() {
@@ -26,11 +24,9 @@ class SubjectController {
 		})
 	}
 
-
-
 	createSubject() {
 		this._$http
-			.post('http://tiy-lr-flashcards.azurewebsites.net/subjects/create', {
+			.post('http://tiy-lr-flashcards.azurewebsites.net/flashcards/createsubject', {
 				Name: this.newSubject
 			})
 			.then((response) => {
@@ -43,8 +39,6 @@ class SubjectController {
 			.catch((error) => {
 				console.log(error);
 			})
-
-
 	}
 
 	deleteSubject(subject) {
@@ -56,11 +50,15 @@ class SubjectController {
 		 console.log("spliced");
 		 this.getData();
 	 });
-
-
  }
 
-
+ // editSubject(subject) {
+ // 	this._$http
+ // 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editsubject/${subject.id}`)
+ // 	.then((response) => {
+ // 		this.subject.push("");
+ // 	})
+ // }
 
 }
 

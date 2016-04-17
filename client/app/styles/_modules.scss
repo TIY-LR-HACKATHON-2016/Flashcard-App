@@ -34,9 +34,7 @@
   position: absolute;
   margin: 0;
   backface-visibility: hidden;
-
-
-
+  overflow: hidden;
 }
 
 .card .front {
@@ -47,4 +45,16 @@
 .card .back {
   background: $mid-tone;
   transform: rotateX( 180deg );
+}
+
+span {
+  position: absolute;
+  background-color: $accent;
+  color: $dark;
+  left: 10px;
+  bottom: 5px;
+}
+
+small {
+  @extend span;
 }

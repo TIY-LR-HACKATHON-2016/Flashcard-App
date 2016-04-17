@@ -1,7 +1,7 @@
 function config($stateProvider) {
   $stateProvider
     .state('subject', {
-			url: '/subject/create',
+			url: '/flashcards/createsubject',
 			controller: "SubjectController as subjectCtrl",
 			template: require('./subject.html')
 
