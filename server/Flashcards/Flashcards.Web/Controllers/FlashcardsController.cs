@@ -120,7 +120,7 @@ namespace Flashcards.Web.Controllers
         
         public ActionResult ViewSubject(int Id)
         {
-            var model = db.Sets.Where(s => s.Id == Id).Select(c => new
+            var model = db.Sets.Where(s => s.Subject.Id == Id).Select(c => new
             {
                 name = c.Name,
                 id = c.Id,
