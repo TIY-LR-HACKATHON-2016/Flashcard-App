@@ -1,10 +1,6 @@
 @import "./modules/subject";
 @import "./modules/set";
 
-.pagination-centered {
-  color: $mid-tone;
-}
-
 .card-container {
   width: 260px;
   height: 200px;
@@ -30,7 +26,8 @@
   display: block;
   height: 100%;
   width: 100%;
-  line-height: 260px;
+  // line-height: 260px;
+  line-height: 4rem;
   color: $darker-mid;
   text-align: center;
   font-weight: bold;
@@ -47,6 +44,7 @@
 
 .card .back {
   background: $accent;
+  font-size: 3em;
   transform: rotateX( 180deg );
 }
 

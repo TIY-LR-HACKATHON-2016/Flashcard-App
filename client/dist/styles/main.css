@@ -15,6 +15,11 @@ input {
   display: block; }
 
 .pagination-centered {
+  color: #544943; }
+
+.pagination-centered {
+  width: 1000px;
+  margin: 0 auto;
   text-align: center; }
 
 /* Input field that looks like a button */
@@ -55,7 +60,8 @@ input {
   background-color: #251313;
   color: #999;
   margin: 10px;
-  border: 3px solid #512A1F; }
+  border: 3px solid #512A1F;
+  text-align: center; }
   #subject-container a {
     text-decoration: none;
     color: #917f75; }
@@ -74,9 +80,6 @@ input {
 
 #set-trash {
   float: right; }
-
-.pagination-centered {
-  color: #544943; }
 
 .card-container {
   width: 260px;
@@ -100,7 +103,7 @@ input {
   display: block;
   height: 100%;
   width: 100%;
-  line-height: 260px;
+  line-height: 4rem;
   color: #512A1F;
   text-align: center;
   font-weight: bold;
@@ -115,6 +118,7 @@ input {
 
 .card .back {
   background: #A99675;
+  font-size: 3em;
   transform: rotateX(180deg); }
 
 .editing {

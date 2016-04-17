@@ -14,7 +14,7 @@
       <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
     </button>
   </form>
-</div>
+
 
 <div ng-repeat="card in flashCtrl.cards" class="card-span">
   <div ng-show="card.editing">
@@ -35,4 +35,5 @@
     <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="flashCtrl.deleteCard(card)"></span>
     <span ng-click="flashCtrl.toggleEditing(card)">Edit</span>
   </div>
+</div>
 </div>

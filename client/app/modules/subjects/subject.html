@@ -16,13 +16,12 @@
         <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
       </button>
     </form>
-  </div>
 
     <div class="fluid-container">
-      <div id="subject-container" ng-repeat="subject in subjectCtrl.subject" class="btn btn-default btn-lg">
-        <a ng-hide="subject.editing" id="subject-links" ui-sref="set({ subject: subject.id})">
-          <h3>{{ subject.name }}</h3>
-        </a>
+        <div id="subject-container" ng-repeat="subject in subjectCtrl.subject" class="btn btn-default btn-lg">
+          <a ng-hide="subject.editing" id="subject-links" ui-sref="set({ subject: subject.id})">
+            <h3>{{ subject.name }}</h3>
+          </a>
 
         <div ng-show="subject.editing" class="editing">
           <input type="text" ng-model="subject.name">
@@ -38,5 +37,6 @@
 
 
 
+  </div>
 
 </div>
