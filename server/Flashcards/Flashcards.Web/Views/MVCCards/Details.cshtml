@@ -1,0 +1,50 @@
+﻿@model Flashcards.Web.Models.Card
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Card</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.frontText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frontText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.backText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.backText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FrontImgURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FrontImgURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BackImgURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BackImgURL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -170,6 +170,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FlashcardsController.cs" />
+    <Compile Include="Controllers\MVCCardsController.cs" />
+    <Compile Include="Controllers\MVCSetsController.cs" />
+    <Compile Include="Controllers\MVCSubjectsController.cs" />
     <Compile Include="Models\FlashcardsDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,6 +238,21 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\MVCCards\Create.cshtml" />
+    <Content Include="Views\MVCCards\Delete.cshtml" />
+    <Content Include="Views\MVCCards\Details.cshtml" />
+    <Content Include="Views\MVCCards\Edit.cshtml" />
+    <Content Include="Views\MVCCards\Index.cshtml" />
+    <Content Include="Views\MVCSets\Create.cshtml" />
+    <Content Include="Views\MVCSets\Delete.cshtml" />
+    <Content Include="Views\MVCSets\Details.cshtml" />
+    <Content Include="Views\MVCSets\Edit.cshtml" />
+    <Content Include="Views\MVCSets\Index.cshtml" />
+    <Content Include="Views\MVCSubjects\Create.cshtml" />
+    <Content Include="Views\MVCSubjects\Delete.cshtml" />
+    <Content Include="Views\MVCSubjects\Details.cshtml" />
+    <Content Include="Views\MVCSubjects\Edit.cshtml" />
+    <Content Include="Views\MVCSubjects\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
