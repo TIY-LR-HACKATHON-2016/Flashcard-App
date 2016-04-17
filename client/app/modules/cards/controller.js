@@ -24,32 +24,43 @@ class FlashController {
 		}
 	}
 
+	createCard() {
+		this._$http
+			.post(`http://tiy-lr-flashcards.azurewebsites.net/cards/${this.card}`, {
+				Name: this.newCard
+			})
+			.then((response) => {
+				console.log(response);
+				this.newCard = "";
+				this.showForm = false;
+				this.placeholder = "+";
+				this.getData();
+			})
+			.catch((error) => {
+				console.log(error);
+			})
+		}
+
+
 
   getData() {
 		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewset/${this.set}`)
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewcard/`)
 		.then((response) => {
 			console.log(response);
 			this.cards = response.data;
 		});
 	}
 
-		createCard() {
-			this._$http
-				.post(`http://tiy-lr-flashcards.azurewebsites.net/cards/${this.card}`, {
-					Name: this.newCard
-				})
-				.then((response) => {
-					console.log(response);
-					this.newCard = "";
-					this.showForm = false;
-					this.placeholder = "+";
-					this.getData();
-				})
-				.catch((error) => {
-					console.log(error);
-				})
-			}
+	deleteCard(card) {
+	 this._$http
+	 .delete(`'http://tiy-lr-flashcards.azurewebsites.net/cards'`)
+	 .then((response) => {
+		 this.cards.splice(this.cards.indexOf(card), 1);
+	 });
+ }
+
+
 
 //TEST DATA -------------------------------------------------------------------
 		// 	this.cards = [

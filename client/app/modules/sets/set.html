@@ -2,11 +2,10 @@
 
   <h2>Sets</h2>
 
-  <form ng-submit="subjectCtrl.createSet()">
-    <input ng-focus="setCtrl.toggleForm()" ng-model="seCtrl.newSubject" type="text"
+  <form ng-submit="setCtrl.createSet()">
+    <input ng-focus="setCtrl.toggleForm()" ng-model="setCtrl.newSet" type="text"
       ng-class="{ 'showForm': setCtrl.showForm }"
       class="email-field" placeholder="{{ setCtrl.placeholder }}">
-
 
     <button id="submit-button" type="submit" value="Add Set" ng-show="setCtrl.showForm">
       <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
@@ -15,7 +14,8 @@
 </div>
 
 <div class="row" ng-repeat="set in setCtrl.sets">
-  <div class="col-md-1">
+  <div class="col-md-12">
     <a ui-sref="cards({ set: set.id })">{{ set.name }}</a>
+    <span id="set-trash" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteSet(set)"></span>
   </div>
 </div>

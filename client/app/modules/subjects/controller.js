@@ -47,6 +47,15 @@ class SubjectController {
 
 	}
 
+	deleteSubject(subject) {
+	 this._$http
+	 .delete(`'http://tiy-lr-flashcards.azurewebsites.net/subjects/create'`)
+	 .then((response) => {
+		 this.subjects.splice(this.subjects.indexOf(subject), 1);
+	 });
+ }
+
+
 }
 
 

@@ -5,21 +5,27 @@ class SetController {
 		this.sets = [];
 		this.subject = $stateParams.subject;
 		this.getData();
+
+		// form show/hide thing
+		this.newSet = "";
+		this.showForm = false;
+		this.placeholder = "+";
 	}
 
 	toggleForm() {
-		this.placeholder = "Add New Subject";
+		this.placeholder = "Add New Set";
 		this.showForm = true;
 	}
 
 	createSet() {
 		this._$http
-			.post(`http://tiy-lr-flashcards.azurewebsites.net/sets/${this.set}`{
-				Name: this.newSet
+			.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/createset`, {
+				Name: this.newSet,
+				SubjectId: this.subject
 			})
 			.then((response) => {
 				console.log(response);
-				this.newCard = "";
+				this.newSet = "";
 				this.showForm = false;
 				this.placeholder = "+";
 				this.getData();
@@ -37,6 +43,14 @@ class SetController {
 			this.sets = response.data;
 		});
 	}
+
+	deleteSet(set) {
+	 this._$http
+	 .delete(`'http://tiy-lr-flashcards.azurewebsites.net/sets/create'`)
+	 .then((response) => {
+		 this.sets.splice(this.sets.indexOf(set), 1);
+	 });
+ }
 
 
 

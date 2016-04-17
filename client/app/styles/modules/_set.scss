@@ -1,4 +1,10 @@
 
-.col-md-1 {
-  border-bottom: 3px solid $dark;
+.col-md-12 {
+  border-bottom: 1px solid $dark;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#set-trash {
+  float: right;
 }
