@@ -359,6 +359,21 @@ namespace Flashcards.Web.Controllers
             return Content("Deleted Subject");
         }
 
+        public ActionResult AlphaCards()
+        {
+            var model = db.Cards.Select(x => new
+            {
+                fronttext = x.frontText,
+                backtext = x.backText,
+                id = x.Id,
+                backimgurl = x.BackImgURL,
+                frontimgurl = x.FrontImgURL
+            }).OrderBy(c => c.fronttext);
+
+
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }
