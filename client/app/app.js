@@ -13,7 +13,7 @@ let App = angular.module('app', [
 ]);
 
 function config($urlRouterProvider, $httpProvider) {
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/flashcards/createsubject");
 }
 
 App.config(config);
