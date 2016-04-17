@@ -17,3 +17,13 @@ span {
 input {
   display: block;
 }
+
+.back-btn a {
+  color: $light;
+
+    &:hover {
+      text-decoration: none;
+      color: $accent;
+    }
+
+}
