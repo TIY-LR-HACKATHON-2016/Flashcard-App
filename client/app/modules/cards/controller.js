@@ -9,7 +9,8 @@ class FlashController {
 		this.getData();
 
 		// form show/hide thing
-		this.newSubject = "";
+		this.newCardFront = "";
+		this.newCardBack = "";
 		this.showForm = false;
 		this.placeholder = "+";
 
@@ -26,12 +27,15 @@ class FlashController {
 
 	createCard() {
 		this._$http
-			.post(`http://tiy-lr-flashcards.azurewebsites.net/cards/${this.card}`, {
-				Name: this.newCard
+			.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/createcard`, {
+				frontText: this.newCardFront,
+				backText: this.newCardBack,
+				SetId: this.set
 			})
 			.then((response) => {
 				console.log(response);
-				this.newCard = "";
+				this.newCardFront = "";
+				this.newCardBack = "";
 				this.showForm = false;
 				this.placeholder = "+";
 				this.getData();
@@ -42,10 +46,14 @@ class FlashController {
 		}
 
 
+	toggleForm() {
+		this.placeholder = "New Card Front";
+		this.showForm = true;
+	}
 
   getData() {
 		this._$http
-		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewcard/`)
+		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/viewset/${this.set}`)
 		.then((response) => {
 			console.log(response);
 			this.cards = response.data;
@@ -53,8 +61,9 @@ class FlashController {
 	}
 
 	deleteCard(card) {
+		console.log("deleting?")
 	 this._$http
-	 .delete(`'http://tiy-lr-flashcards.azurewebsites.net/cards'`)
+	 .post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/deletecard/${card.Id}'`)
 	 .then((response) => {
 		 this.cards.splice(this.cards.indexOf(card), 1);
 	 });

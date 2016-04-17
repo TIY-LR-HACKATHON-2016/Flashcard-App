@@ -49,7 +49,7 @@ class SubjectController {
 
 	deleteSubject(subject) {
 	 this._$http
-	 .delete(`'http://tiy-lr-flashcards.azurewebsites.net/subjects/create'`)
+	 .post(`'http://tiy-lr-flashcards.azurewebsites.net/flashcards/deletesubject/${subject.Id}'`)
 	 .then((response) => {
 		 this.subjects.splice(this.subjects.indexOf(subject), 1);
 	 });

@@ -20,7 +20,8 @@ h3 {
   outline: none;
   border-radius: 4px;
   transition: all .1s linear;
-  font-size: 2rem; }
+  font-size: 2rem;
+  margin-bottom: 10px; }
 
 .email-field:hover {
   background-color: #3B5998; }
@@ -45,10 +46,8 @@ h3 {
   margin: 10px;
   border: 3px solid #03396C; }
 
-.col-md-12 {
-  border-bottom: 1px solid #011F4B;
-  max-width: 800px;
-  margin: 0 auto; }
+.col-md-8 {
+  border-bottom: 1px solid #011F4B; }
 
 #set-trash {
   float: right; }
@@ -60,6 +59,8 @@ h3 {
   margin: 0 10px 10px 0;
   perspective: 800px;
   display: inline-block; }
+  .card-container:first-child {
+    margin-left: 10%; }
 
 .card {
   width: 100%;

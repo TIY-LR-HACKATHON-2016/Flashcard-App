@@ -14,8 +14,8 @@
 </div>
 
 <div class="row" ng-repeat="set in setCtrl.sets">
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
     <a ui-sref="cards({ set: set.id })">{{ set.name }}</a>
-    <span id="set-trash" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="deleteSet(set)"></span>
+    <span id="set-trash" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="setCtrl.deleteSet(set)"></span>
   </div>
 </div>
