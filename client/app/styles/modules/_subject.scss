@@ -56,8 +56,16 @@
 }
 
 #subject-container {
-  background-color: $mid-tone;
+  background-color: $dark;
   color: $light;
   margin: 10px;
   border: 3px solid $darker-mid;
+
+    & a {
+      text-decoration: none;
+      color: $card-front-color;
+
+        &:hover {color: $accent;}
+    }
+
 }
