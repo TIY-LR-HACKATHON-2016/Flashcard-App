@@ -35,14 +35,20 @@ namespace Flashcards.Web.Controllers
             }
             newCard.Set = set;
 
-            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
-            if (!imgRegex.IsMatch(card.FrontImgURL))
+            var imgRegex = new Regex("(jpg|png|gif|bmp)$");
+            if (card.FrontImgURL != null)
             {
-                card.FrontImgURL = null;
+                if (!imgRegex.IsMatch(card.FrontImgURL))
+                {
+                    card.FrontImgURL = null;
+                }
             }
-            if (!imgRegex.IsMatch(card.BackImgURL))
+            if (card.BackImgURL != null)
             {
-                card.BackImgURL = null;
+                if (!imgRegex.IsMatch(card.BackImgURL))
+                {
+                    card.BackImgURL = null;
+                }
             }
 
             db.Cards.Add(newCard);
@@ -68,10 +74,13 @@ namespace Flashcards.Web.Controllers
                 Name = set.Name,
                 Subject = sub
             };
-            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
-            if (imgRegex.IsMatch(set.ImgURL))
+            if (set.ImgURL != null)
             {
-                newSet.ImgURL = set.ImgURL;
+                var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+                if (imgRegex.IsMatch(set.ImgURL))
+                {
+                    newSet.ImgURL = set.ImgURL;
+                }
             }
             db.Sets.Add(newSet);
             db.SaveChanges();
@@ -89,10 +98,13 @@ namespace Flashcards.Web.Controllers
             {
                 Name = subject.Name,
             };
-            var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
-            if (imgRegex.IsMatch(subject.ImgURL))
+            if (subject.ImgURL != null)
             {
-                newSub.ImgURL = subject.ImgURL;
+                var imgRegex = new Regex(".(jpg|png|gif|bmp)$");
+                if (imgRegex.IsMatch(subject.ImgURL))
+                {
+                    newSub.ImgURL = subject.ImgURL;
+                }
             }
             db.Subjects.Add(newSub);
             db.SaveChanges();
