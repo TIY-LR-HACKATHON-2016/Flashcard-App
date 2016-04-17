@@ -17,6 +17,17 @@ class SetController {
 		this.showForm = true;
 	}
 
+	toggleEditing(set) {
+		if (set.editing === true) {
+			set.editing = false;
+		}
+		else {
+			set.editing = true;
+		}
+		console.log(set);
+
+	}
+
 	createSet() {
 		this._$http
 			.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/createset`, {
@@ -52,14 +63,16 @@ class SetController {
 	 });
  }
 
- // editSet(set) {
- // 	this._$http
- // 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editset/${set.id}`)
- // 	.then((response) => {
- // 		this.set.push("");
- // 	})
- // }
-
+ editSet(set) {
+  this._$http
+  .post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editset/${set.id}`, {
+ 	 Name: set.name
+  })
+  .then((response) => {
+ 	 console.log(response);
+ 	 set.editing = false;
+  })
+ }
 
 
 

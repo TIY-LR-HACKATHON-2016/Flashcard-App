@@ -47,24 +47,11 @@
   transform: rotateX( 180deg );
 }
 
-span {
-  // position: absolute;
-  // background-color: $accent;
-  // color: $dark;
-  // left: 10px;
-  // bottom: 5px;
-}
-
-small {
-  @extend span;
-}
-
 .editing {
   color: white;
 }
 
 .bottom-buttons {
-  // background-color: $mid-tone;
-  color: white;
+  color: $light;
   position: relative;
 }

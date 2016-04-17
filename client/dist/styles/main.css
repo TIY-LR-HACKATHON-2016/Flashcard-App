@@ -1,4 +1,4 @@
-* {
+.wrapper {
   background-color: #8B9DC3; }
 
 .pagination-centered {
@@ -99,5 +99,5 @@ h3 {
   color: white; }
 
 .bottom-buttons {
-  color: white;
+  color: #8B9DC3;
   position: relative; }

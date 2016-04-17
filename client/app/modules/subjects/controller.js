@@ -76,10 +76,6 @@ class SubjectController {
 
 }
 
-
-
-
-
 export default SubjectController
 
 //TEST DATA -------------------------------------------------------------------
