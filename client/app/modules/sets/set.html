@@ -5,7 +5,7 @@
   <form ng-submit="setCtrl.createSet()">
     <input ng-focus="setCtrl.toggleForm()" ng-model="setCtrl.newSet" type="text"
       ng-class="{ 'showForm': setCtrl.showForm }"
-      class="email-field" placeholder="{{ setCtrl.placeholder }}">
+      class="new-field" placeholder="{{ setCtrl.placeholder }}">
 
     <button id="submit-button" type="submit" value="Add Set" ng-show="setCtrl.showForm">
       <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>

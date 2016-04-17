@@ -6,9 +6,9 @@
   <form ng-submit="flashCtrl.createCard()">
     <input ng-focus="flashCtrl.toggleForm()" ng-model="flashCtrl.newCardFront" type="text"
       ng-class="{ 'showForm': flashCtrl.showForm }"
-      class="email-field" placeholder="{{ flashCtrl.placeholder }}">
+      class="new-field" placeholder="{{ flashCtrl.placeholder }}">
 
-    <input class="email-field" type="text" ng-model="flashCtrl.newCardBack" placeholder="Back Text" ng-show="flashCtrl.showForm">
+    <input class="new-field" type="text" ng-model="flashCtrl.newCardBack" placeholder="Back Text" ng-show="flashCtrl.showForm">
 
     <button id="submit-button" type="submit" value="Add Card" ng-show="flashCtrl.showForm">
       <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
@@ -25,7 +25,10 @@
 
 
   </div>
-  <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="flashCtrl.deleteCard(card)"></span>
-  <small>Edit</small>
+
+  <div class="bottom-buttons">
+    <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="flashCtrl.deleteCard(card)"></span>
+    <span ng-click="cardCtrl.toggleEditing(card)">Edit</span>
+  </div>
 
 </section>

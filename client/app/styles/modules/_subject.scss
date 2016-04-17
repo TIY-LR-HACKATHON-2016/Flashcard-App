@@ -7,7 +7,7 @@ h3 {
 }
 
 /* Input field that looks like a button */
-.email-field {
+.new-field {
   // width: 80px;
   margin: 0 auto;
 	display: inline-block;
@@ -25,13 +25,14 @@ h3 {
 
 
 }
-.email-field:hover {
+.new-field:hover {
 	background-color: $mid-tone;
 }
 
-.email-field.showForm {
+.new-field.showForm {
   // width: 200px;
 }
+
 
 #submit-button {
   color: $accent;

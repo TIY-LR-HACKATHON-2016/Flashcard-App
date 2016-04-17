@@ -15,6 +15,17 @@ class SubjectController {
 		this.showForm = true;
 	}
 
+	toggleEditing(subject) {
+		if (subject.editing === true) {
+			subject.editing = false;
+		}
+		else {
+			subject.editing = true;
+		}
+		console.log(subject);
+
+	}
+
 	getData() {
 		this._$http
 		.get(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/indexsubject`)
@@ -52,13 +63,16 @@ class SubjectController {
 	 });
  }
 
- // editSubject(subject) {
- // 	this._$http
- // 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editsubject/${subject.id}`)
- // 	.then((response) => {
- // 		this.subject.push("");
- // 	})
- // }
+ editSubject(subject) {
+ 	this._$http
+ 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editsubject/${subject.id}`, {
+		Name: subject.name
+	})
+ 	.then((response) => {
+ 		console.log(response);
+		subject.editing = false;
+ 	})
+ }
 
 }
 

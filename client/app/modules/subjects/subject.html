@@ -9,7 +9,7 @@
     <form ng-submit="subjectCtrl.createSubject()">
       <input ng-focus="subjectCtrl.toggleForm()" ng-model="subjectCtrl.newSubject" type="text"
         ng-class="{ 'showForm': subjectCtrl.showForm }"
-        class="email-field" placeholder="{{ subjectCtrl.placeholder }}">
+        class="new-field" placeholder="{{ subjectCtrl.placeholder }}">
 
 
       <button id="submit-button" type="submit" value="Add Subject" ng-show="subjectCtrl.showForm">
@@ -20,10 +20,19 @@
 
     <div class="fluid-container">
       <div id="subject-container" ng-repeat="subject in subjectCtrl.subject" class="btn btn-default btn-lg">
-        <a  id="subject-links" ui-sref="set({ subject: subject.id})">
+        <a ng-hide="subject.editing" id="subject-links" ui-sref="set({ subject: subject.id})">
           <h3>{{ subject.name }}</h3>
         </a>
-        <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="subjectCtrl.deleteSubject(subject)"></span>
+
+        <div ng-show="subject.editing" class="editing">
+          <input type="text" ng-model="subject.name">
+          <input type="submit" ng-click="subjectCtrl.editSubject(subject)">
+        </div>
+
+        <div class="bottom-buttons">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="subjectCtrl.deleteSubject(subject)"></span>
+          <span ng-click="subjectCtrl.toggleEditing(subject)">Edit</span>
+        </div>
       </div>
     </div>
 
