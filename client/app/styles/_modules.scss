@@ -38,12 +38,12 @@
 }
 
 .card .front {
-  background: $accent;
+  background: $mid-tone;
   font-size: 3em;
 }
 
 .card .back {
-  background: $mid-tone;
+  background: $accent;
   transform: rotateX( 180deg );
 }
 

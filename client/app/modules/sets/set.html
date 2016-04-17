@@ -16,6 +16,16 @@
 <div class="row" ng-repeat="set in setCtrl.sets">
   <div class="col-md-8 col-md-offset-2">
     <a ui-sref="cards({ set: set.id })">{{ set.name }}</a>
-    <span id="set-trash" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="setCtrl.deleteSet(set)"></span>
+    <!-- <span id="set-trash" class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="setCtrl.deleteSet(set)"></span> -->
+
+    <div ng-show="set.editing" class="editing">
+      <input type="text" ng-model="set.name">
+      <input type="submit" ng-click="setCtrl.editSet(set)">
+    </div>
+
+    <div class="bottom-buttons-set">
+      <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="setCtrl.deleteSet(set)"></span>
+      <span ng-click="setCtrl.toggleEditing(set)">Edit</span>
+    </div>
   </div>
 </div>

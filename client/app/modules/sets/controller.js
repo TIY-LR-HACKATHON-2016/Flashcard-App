@@ -5,8 +5,7 @@ class SetController {
 		this.sets = [];
 		this.subject = $stateParams.subject;
 		this.getData();
-
-		// form show/hide thing
+		// form show/hide //
 		this.newSet = "";
 		this.showForm = false;
 		this.placeholder = "+";

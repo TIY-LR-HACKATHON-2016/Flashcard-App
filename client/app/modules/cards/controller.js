@@ -24,6 +24,17 @@ class FlashController {
 		}
 	}
 
+	toggleEditing(set) {
+		if (set.editing === true) {
+			set.editing = false;
+		}
+		else {
+			set.editing = true;
+		}
+		console.log(set);
+
+	}
+
 	createCard() {
 		this._$http
 			.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/createcard`, {
@@ -66,13 +77,16 @@ class FlashController {
 	 });
  }
 
-	// editCard(card) {
-	// 	this._$http
-	// 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editcard/${card.id}`)
-	// 	.then((response) => {
-	// 		this.cards.push("");
-	// 	})
-	// }
+ editCard(card) {
+	this._$http
+	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editcard/${card.id}`, {
+		Name: card.name
+	})
+	.then((response) => {
+		console.log(response);
+		card.editing = false;
+	})
+ }
 
 
 

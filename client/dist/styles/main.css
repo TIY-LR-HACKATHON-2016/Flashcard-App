@@ -1,19 +1,19 @@
 .wrapper {
-  background-color: #8B9DC3; }
+  background-color: #251313; }
 
 .pagination-centered {
   text-align: center; }
 
 h3 {
-  background-color: #005B96; }
+  background-color: #A99675; }
 
 /* Input field that looks like a button */
 .new-field {
   margin: 0 auto;
   display: inline-block;
-  color: #8B9DC3;
+  color: #999;
   text-align: center;
-  background-color: #03396C;
+  background-color: #512A1F;
   padding: .9em 1.8em;
   border: none;
   cursor: pointer;
@@ -24,14 +24,14 @@ h3 {
   margin-bottom: 10px; }
 
 .new-field:hover {
-  background-color: #3B5998; }
+  background-color: #544943; }
 
 #submit-button {
-  color: #005B96;
+  color: #A99675;
   font-size: 2.5rem;
   border: none; }
   #submit-button:hover {
-    color: #011F4B; }
+    color: #251313; }
 
 #subject-button:hover {
   opacity: .33; }
@@ -41,15 +41,15 @@ h3 {
   background-size: 33px; }
 
 #subject-container {
-  background-color: #005B96;
-  color: #8B9DC3;
+  background-color: #A99675;
+  color: #999;
   margin: 10px;
-  border: 3px solid #03396C; }
+  border: 3px solid #512A1F; }
 
 .col-md-8 {
-  border-bottom: 1px solid #011F4B; }
+  border-bottom: 1px solid #251313; }
   .col-md-8 a {
-    color: #03396C;
+    color: #512A1F;
     font-size: 2rem; }
 
 #set-trash {
@@ -79,7 +79,7 @@ h3 {
   height: 100%;
   width: 100%;
   line-height: 260px;
-  color: #03396C;
+  color: #512A1F;
   text-align: center;
   font-weight: bold;
   position: absolute;
@@ -88,16 +88,16 @@ h3 {
   overflow: hidden; }
 
 .card .front {
-  background: #005B96;
+  background: #544943;
   font-size: 3em; }
 
 .card .back {
-  background: #3B5998;
+  background: #A99675;
   transform: rotateX(180deg); }
 
 .editing {
   color: white; }
 
 .bottom-buttons {
-  color: #8B9DC3;
+  color: #999;
   position: relative; }
