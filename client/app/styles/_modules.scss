@@ -1,13 +1,16 @@
 @import "./modules/subject";
 @import "./modules/set";
 
+.pagination-centered {
+  color: $mid-tone;
+}
+
 .card-container {
   width: 260px;
   height: 200px;
   position: relative;
   margin: 0 10px 10px 0;
   perspective: 800px;
-  display: inline-block;
 }
 
 .card {
@@ -54,4 +57,21 @@
 .bottom-buttons {
   color: $light;
   position: relative;
+}
+
+.card-span {
+  position: relative;
+  display: inline-block;
+
+  .editing {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+  }
+
+  .bottom-buttons {
+    position: absolute;
+    bottom: 14px;
+    left: 4px;
+  }
 }

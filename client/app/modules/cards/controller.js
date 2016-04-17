@@ -80,7 +80,8 @@ class FlashController {
  editCard(card) {
 	this._$http
 	.post(`http://tiy-lr-flashcards.azurewebsites.net/flashcards/editcard/${card.id}`, {
-		Name: card.name
+		frontText: card.fronttext,
+		backText: card.backtext,
 	})
 	.then((response) => {
 		console.log(response);

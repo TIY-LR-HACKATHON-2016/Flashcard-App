@@ -16,18 +16,23 @@
   </form>
 </div>
 
-<section ng-click="flashCtrl.toggleClass(card)"  class="card-container" ng-repeat="card in flashCtrl.cards">
-  <div class="card"
-    ng-class="{ 'flipped': card.flipped }">
-    <figure class="front">{{ card.fronttext }}</figure>
-    <figure class="back">{{ card.backtext }}</figure>
+<div ng-repeat="card in flashCtrl.cards" class="card-span">
+  <div ng-show="card.editing">
+    <input type="text" ng-model="card.fronttext" placeholder="Front Text">
+    <input type="text" ng-model="card.backtext" placeholder="Back Text">
+    <input type="submit" value="Submit" ng-click="flashCtrl.editCard(card)">
   </div>
-  <div ng-show="card.editing" class="editing">
-    <input type="text" ng-model="card.name">
-    <input type="submit" ng-click="flashCtrl.editCard(card)">
-  </div>
+  <section ng-click="flashCtrl.toggleClass(card)" class="card-container">
+    <div class="card"
+      ng-class="{ 'flipped': card.flipped }">
+      <figure class="front">
+        {{ card.fronttext }}
+      </figure>
+      <figure class="back">{{ card.backtext }}</figure>
+    </div>
+  </section>
   <div class="bottom-buttons">
     <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="flashCtrl.deleteCard(card)"></span>
     <span ng-click="flashCtrl.toggleEditing(card)">Edit</span>
   </div>
-</section>
+</div>

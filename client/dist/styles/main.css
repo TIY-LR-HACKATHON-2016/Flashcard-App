@@ -1,11 +1,14 @@
+* {
+  vertical-align: top; }
+
 .wrapper {
   background-color: #251313; }
 
 .pagination-centered {
   text-align: center; }
 
-h3 {
-  background-color: #A99675; }
+a {
+  color: light; }
 
 /* Input field that looks like a button */
 .new-field {
@@ -27,7 +30,7 @@ h3 {
   background-color: #544943; }
 
 #submit-button {
-  color: #A99675;
+  color: #544943;
   font-size: 2.5rem;
   border: none; }
   #submit-button:hover {
@@ -41,7 +44,7 @@ h3 {
   background-size: 33px; }
 
 #subject-container {
-  background-color: #A99675;
+  background-color: #544943;
   color: #999;
   margin: 10px;
   border: 3px solid #512A1F; }
@@ -55,13 +58,15 @@ h3 {
 #set-trash {
   float: right; }
 
+.pagination-centered {
+  color: #544943; }
+
 .card-container {
   width: 260px;
   height: 200px;
   position: relative;
   margin: 0 10px 10px 0;
-  perspective: 800px;
-  display: inline-block; }
+  perspective: 800px; }
 
 .card {
   width: 100%;
@@ -101,3 +106,11 @@ h3 {
 .bottom-buttons {
   color: #999;
   position: relative; }
+
+.card-span {
+  position: relative;
+  display: inline-block; }
+  .card-span .bottom-buttons {
+    position: absolute;
+    bottom: 14px;
+    left: 4px; }
