@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Faker;
@@ -18,23 +19,31 @@ namespace Flashcards.Web.Migrations
         {
             if (!context.Cards.Any())
             {
-                var subject = new Subject {Name = "Physics"};
-                context.Subjects.Add(subject);
+                var music = new Subject() {Name = "Music"};
+                context.Subjects.Add(music);
 
-                var sets = Builder<Set>.CreateListOfSize(5)
-                    .All()
-                    .With(s => s.Subject = subject)
-                    .With(s => s.Name = CompanyFaker.Name())
-                    .With(s => s.Cards = Builder<Card>.CreateListOfSize(NumberFaker.Number(10, 50))
-                        .All()
-                        .With(x => x.frontText = NameFaker.MaleFirstName())
-                        .With(x => x.backText = NameFaker.FemaleFirstName())
-                        .With(x => x.Set == s)
-                        .Random(10).With(x => x.FrontImgURL = "http://i.imgur.com/lWS7uYp.jpg")
-                        .Build())
-                    .Build();
+                var songArtists = new Set() {Name = "Song and Artist", Subject = music};
+                var weeksAtNumberOne = new Set()
+                {
+                    Name = "Consecutive Weeks at #1",
+                    Subject = music,
+                    Cards = new List<Card>()
+                    {
+                        new Card() {frontText = "Yeah! by Usher", backText = "12"},
+                        new Card() {frontText = "Faith by George Michael", backText = "4"},
+                        new Card() {frontText = "(Everything I Do) I Do It for You by Bryan Adams", backText = "7"},
+                        new Card() {frontText = "I Want to Hold Your Hand by The Beatles", backText = "7"},
+                        new Card() {frontText = "I Gotta Feeling by the eBlack Eyed Peas", backText = "14"},
+                        new Card() {frontText = "Theme from Shaft by Isaac Hayes", backText = "2"},
+                        new Card() {frontText = "One More Night by Maroon 5", backText = "9"},
+                        new Card() {frontText = "Mack the Knife by Bobby Darin", backText = "6"},
+                        new Card() {frontText = "Call Me by Blondie", backText = "6"},
+                        new Card() {frontText = "Uptown Funk by Mark Ronson", backText = "14"},
+                    }
+                };
 
-                context.Sets.AddRange(sets);
+
+                context.Sets.Add(weeksAtNumberOne);
                 context.SaveChanges();
             }
         }
